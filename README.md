@@ -9,7 +9,7 @@ binding that can be used with CLI supported languages like C#.
 Obtaining the source
 --------------------
 
-The source repository is located at https://github.com/xypron.
+The source repository is located at https://github.com/xypron/glpk-cli.
 It can be downloaded with
 
     git clone https://github.com/xypron/glpk-cli.git
