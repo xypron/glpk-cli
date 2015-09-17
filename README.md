@@ -12,7 +12,7 @@ Obtaining the source
 The source repository is located at https://github.com/xypron.
 It can be downloaded with
 
-    git clone https://github.com/xypron/glpk-cil.git
+    git clone https://github.com/xypron/glpk-cli.git
 
 
 Building from source
