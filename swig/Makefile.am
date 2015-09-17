@@ -8,36 +8,37 @@ VERSION_INFO = 1:0:1
 all:
 	mkdir -p src/c
 	mkdir -p src/csharp
-	$(SWIG) $(SWIGFLAGS) -csharp -dllimport libglpk-cil \
+	$(SWIG) $(SWIGFLAGS) -csharp -dllimport libglpk-cli \
 	  -namespace org.gnu.glpk \
 	  -o src/c/glpk_wrap.c -outdir src/csharp glpk.i
 	$(LIBTOOL) --mode=compile $(CC) $(CFLAGS) $(CPPFLAGS) -I. -c -fPIC \
 	  src/c/glpk_wrap.c
 	$(LIBTOOL) --mode=link $(CC) \
 	  -version-info $(VERSION_INFO) -revision $(PACKAGE_VERSION) \
-	  -g -O -o libglpk-cil.la -rpath ${prefix}/lib/cil glpk_wrap.lo \
+	  -g -O -o libglpk-cli.la -rpath ${prefix}/lib/cli glpk_wrap.lo \
 	  $(LDFLAGS) -lglpk 
 	$(MCS) -target:library \
-	  src/csharp/*.cs -out:libglpk-cil.dll
+	  src/csharp/*.cs -out:libglpk-cli.dll
 
 clean-local:
 	rm -f -r src/csharp src/c .libs
-	rm -f *.o *.la *.lo
+	rm -f *.o *.la *.lo *.dll
 	rm -rf target 
 
 documentation:
 
 install:
-	mkdir -p -m 755 $(DESTDIR)${libdir}/glpk-cil;true
-	$(LIBTOOL) --mode=install install -c libglpk-cil.la \
-          $(DESTDIR)${libdir}/glpk-cil/libglpk-cil.la
-	$(LIBTOOL) --mode=install install -c libglpk-cil.dll \
-          $(DESTDIR)${libdir}/glpk-cil/libglpk-cil.dll
-	$(LIBTOOL) --mode=finish $(DESTDIR)${libdir}/glpk-cil
+	mkdir -p -m 755 $(DESTDIR)${libdir}/glpk-cli;true
+	$(LIBTOOL) --mode=install install -c libglpk-cli.la \
+          $(DESTDIR)${libdir}/glpk-cli/libglpk-cli.la
+	$(LIBTOOL) --mode=install install -c libglpk-cli.dll \
+          $(DESTDIR)${libdir}/glpk-cli/libglpk-cli.dll
+	$(LIBTOOL) --mode=finish $(DESTDIR)${libdir}/glpk-cli
 
 check:
-	cd ../examples/csharp && mcs -r:libglpk-cil -lib:$(abs_top_srcdir)/swig/ \
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
 	version.cs
+	export MONO_PATH="../../swig" && \
 	cd ../examples/csharp && ./version.exe
 
 dist-hook:
