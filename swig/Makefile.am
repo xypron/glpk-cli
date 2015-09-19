@@ -40,6 +40,10 @@ check:
 	version.cs
 	export MONO_PATH="../../swig" && \
 	cd ../examples/csharp && ./version.exe
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	lp.cs
+	export MONO_PATH="../../swig" && \
+	cd ../examples/csharp && ./lp.exe
 
 dist-hook:
 	rm -rf `find $(distdir) -name '*~'`
