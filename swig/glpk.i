@@ -1,10 +1,5 @@
 %module GLPK
 
-%{
-#include "glpk.h"
-#include "glpk_cli.h"
-%}
-
 /* As there is no good transformation for va_list
  * we will just do nothing.
  * cf. http://swig.org/Doc1.3/SWIGDocumentation.html#Varargs_nn8
