@@ -5,7 +5,7 @@ class Program
 {  
     static void Main(string[] args)  
     {  
-        SWIGTYPE_p_glp_prob lp;
+        glp_prob lp;
         glp_smcp parm;
         SWIGTYPE_p_int ind;
         SWIGTYPE_p_double val;
@@ -85,7 +85,7 @@ class Program
      * write simplex solution
      * @param lp problem
      */
-    static void write_lp_solution(SWIGTYPE_p_glp_prob lp) {
+    static void write_lp_solution(glp_prob lp) {
         int i;
         int n;
         String name;
