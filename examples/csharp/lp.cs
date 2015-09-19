@@ -78,6 +78,8 @@ class Program
 
         // Free memory
         GLPK.glp_delete_prob(lp);
+
+	Environment.Exit(ret);
     }  
 
     

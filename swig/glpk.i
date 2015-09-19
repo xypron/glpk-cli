@@ -2,9 +2,7 @@
 
 /* As there is no good transformation for va_list
  * we will just do nothing.
- * cf. http://swig.org/Doc1.3/SWIGDocumentation.html#Varargs_nn8
- * This typemap is necessary to compile on amd64
- * Linux. 
+ * cf. http://swig.org/Doc3.0/SWIGDocumentation.html#Varargs_nn8
  */
 %typemap(in) (va_list arg) {
 }
