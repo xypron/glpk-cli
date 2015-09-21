@@ -124,48 +124,51 @@ glp_cli_vertex_data *glp_cli_vertex_get_data(
 
 // Exception handling
 %insert(runtime) %{
-  // Code to handle throwing of C# CustomApplicationException from C/C++ code.
-  // The equivalent delegate to the callback, CSharpExceptionCallback_t, is CustomExceptionDelegate
-  // and the equivalent customExceptionCallback instance is customDelegate
-  typedef void (SWIGSTDCALL* CSharpExceptionCallback_t)(const char *);
-  CSharpExceptionCallback_t customExceptionCallback = NULL;
+    // Code to handle throwing of C# CustomApplicationException from
+    // C/C++ code. The equivalent delegate to the callback,
+    // CSharpExceptionCallback_t, is CustomExceptionDelegate
+    // and the equivalent customExceptionCallback instance is customDelegate.
+    typedef void (SWIGSTDCALL* CSharpExceptionCallback_t)(const char *);
+    CSharpExceptionCallback_t customExceptionCallback = NULL;
 
-  extern SWIGEXPORT
-  void SWIGSTDCALL CustomExceptionRegisterCallback(CSharpExceptionCallback_t customCallback) {
-    customExceptionCallback = customCallback;
-  }
+    extern SWIGEXPORT
+    void SWIGSTDCALL CustomExceptionRegisterCallback(CSharpExceptionCallback_t customCallback) {
+      customExceptionCallback = customCallback;
+    }
 
-  // Note that SWIG detects any method calls named starting with
-  // SWIG_CSharpSetPendingException for warning 845
-  static void SWIG_CSharpSetPendingExceptionCustom(const char *msg) {
-    customExceptionCallback(msg);
-  }
+    // Note that SWIG detects any method calls named starting with
+    // SWIG_CSharpSetPendingException for warning 845
+    static void SWIG_CSharpSetPendingExceptionCustom(const char *msg) {
+      customExceptionCallback(msg);
+    }
 %}
 
 %pragma(csharp) imclasscode=%{
-  class CustomExceptionHelper {
-    // C# delegate for the C/C++ customExceptionCallback
-    public delegate void CustomExceptionDelegate(string message);
-    static CustomExceptionDelegate customDelegate =
-                                   new CustomExceptionDelegate(SetPendingCustomException);
+    class CustomExceptionHelper {
+        // C# delegate for the C/C++ customExceptionCallback
+        public delegate void CustomExceptionDelegate(string message);
+        static CustomExceptionDelegate customDelegate =
+                new CustomExceptionDelegate(SetPendingCustomException);
 
-    [global::System.Runtime.InteropServices.DllImport("$dllimport", EntryPoint="CustomExceptionRegisterCallback")]
-    public static extern
-           void CustomExceptionRegisterCallback(CustomExceptionDelegate customCallback);
+        [global::System.Runtime.InteropServices.DllImport(
+                "$dllimport", EntryPoint="CustomExceptionRegisterCallback")]
+        public static extern
+                void CustomExceptionRegisterCallback(
+                        CustomExceptionDelegate customCallback);
 
-    static void SetPendingCustomException(string message) {
-      SWIGPendingException.Set(new GlpkException(message));
+        static void SetPendingCustomException(string message) {
+                SWIGPendingException.Set(new GlpkException(message));
+        }
+
+        static CustomExceptionHelper() {
+                CustomExceptionRegisterCallback(customDelegate);
+        }
     }
-
-    static CustomExceptionHelper() {
-      CustomExceptionRegisterCallback(customDelegate);
+    static CustomExceptionHelper exceptionHelper = new CustomExceptionHelper();
+    // This method is only introduced to avoid a warning.
+    private static CustomExceptionHelper getExceptionHelper() {
+        return exceptionHelper;
     }
-  }
-  static CustomExceptionHelper exceptionHelper = new CustomExceptionHelper();
-  // This method is only introduced to avoid a warning.
-  private static CustomExceptionHelper getExceptionHelper() {
-    return exceptionHelper;
-  }
 %}
 
 
