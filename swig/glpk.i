@@ -51,7 +51,7 @@ void glp_cli_set_msg_lvl(int msg_lvl) {
  */
 void glp_cli_set_numeric_locale(const char *locale) {
     setlocale(LC_NUMERIC, locale);
-    }
+}
 
 /**
  * This hook function will be processed if an error occured
@@ -73,7 +73,7 @@ void glp_cli_error_hook(void *in) {
  * @return data
  */
 glp_cli_arc_data *glp_cli_arc_get_data(const glp_arc *arc) {
-   return (glp_cli_arc_data *) arc->data;
+    return (glp_cli_arc_data *) arc->data;
 }
 
 /**
@@ -85,10 +85,11 @@ glp_cli_arc_data *glp_cli_arc_get_data(const glp_arc *arc) {
  */
 glp_vertex *glp_cli_vertex_get(
       const glp_graph *G, const int i) {
-   if (i < 1 || i > G->nv) {
-      glp_error( "Index %d is out of range.\n", i);
-   }
-   return G->v[i];
+
+    if (i < 1 || i > G->nv) {
+        glp_error( "Index %d is out of range.\n", i);
+    }
+    return G->v[i];
 }
 
 /**
@@ -99,11 +100,12 @@ glp_vertex *glp_cli_vertex_get(
  * @return data
  */
 glp_cli_vertex_data *glp_cli_vertex_data_get(
-      const glp_graph *G, const int i) {
-   if (i < 1 || i > G->nv) {
-      glp_error( "Index %d is out of range.\n", i);
-   }
-   return (glp_cli_vertex_data *) G->v[i]->data;
+        const glp_graph *G, const int i) {
+
+    if (i < 1 || i > G->nv) {
+        glp_error( "Index %d is out of range.\n", i);
+    }
+    return (glp_cli_vertex_data *) G->v[i]->data;
 }
 
 /**
@@ -113,8 +115,9 @@ glp_cli_vertex_data *glp_cli_vertex_data_get(
  * @return data
  */
 glp_cli_vertex_data *glp_cli_vertex_get_data(
-      const glp_vertex *v) {
-   return v->data;
+        const glp_vertex *v) {
+
+    return v->data;
 }
 
 %}
