@@ -45,9 +45,14 @@ check:
 	lp.cs
 	export MONO_PATH="../../swig" && \
 	cd ../examples/csharp && ./lp.exe
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	errordemo.cs
+	export MONO_PATH="../../swig" && \
+	cd ../examples/csharp && ./errordemo.exe
 
 dist-hook:
 	rm -rf `find $(distdir) -name '*~'`
+	rm -rf `find $(distdir) -name '*.orig'`
 	rm -rf `find $(distdir) -name .svn`
 	rm -rf `find $(distdir) -name '*.bak'`
 
