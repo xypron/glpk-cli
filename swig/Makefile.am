@@ -8,6 +8,7 @@ VERSION_INFO = 1:0:1
 all:
 	mkdir -p src/c
 	mkdir -p src/csharp
+	cp *.cs src/csharp
 	$(SWIG) $(SWIGFLAGS) -csharp -dllimport libglpk-cli \
 	  -namespace org.gnu.glpk \
 	  -o src/c/glpk_wrap.c -outdir src/csharp glpk.i

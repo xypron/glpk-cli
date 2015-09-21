@@ -122,6 +122,73 @@ glp_cli_vertex_data *glp_cli_vertex_get_data(
 
 %}
 
+// Exception handling
+%insert(runtime) %{
+  // Code to handle throwing of C# CustomApplicationException from C/C++ code.
+  // The equivalent delegate to the callback, CSharpExceptionCallback_t, is CustomExceptionDelegate
+  // and the equivalent customExceptionCallback instance is customDelegate
+  typedef void (SWIGSTDCALL* CSharpExceptionCallback_t)(const char *);
+  CSharpExceptionCallback_t customExceptionCallback = NULL;
+
+  extern SWIGEXPORT
+  void SWIGSTDCALL CustomExceptionRegisterCallback(CSharpExceptionCallback_t customCallback) {
+    customExceptionCallback = customCallback;
+  }
+
+  // Note that SWIG detects any method calls named starting with
+  // SWIG_CSharpSetPendingException for warning 845
+  static void SWIG_CSharpSetPendingExceptionCustom(const char *msg) {
+    customExceptionCallback(msg);
+  }
+%}
+
+%pragma(csharp) imclasscode=%{
+  class CustomExceptionHelper {
+    // C# delegate for the C/C++ customExceptionCallback
+    public delegate void CustomExceptionDelegate(string message);
+    static CustomExceptionDelegate customDelegate =
+                                   new CustomExceptionDelegate(SetPendingCustomException);
+
+    [global::System.Runtime.InteropServices.DllImport("$dllimport", EntryPoint="CustomExceptionRegisterCallback")]
+    public static extern
+           void CustomExceptionRegisterCallback(CustomExceptionDelegate customCallback);
+
+    static void SetPendingCustomException(string message) {
+      SWIGPendingException.Set(new GlpkException(message));
+    }
+
+    static CustomExceptionHelper() {
+      CustomExceptionRegisterCallback(customDelegate);
+    }
+  }
+  static CustomExceptionHelper exceptionHelper = new CustomExceptionHelper();
+  // This method is only introduced to avoid a warning.
+  private static CustomExceptionHelper getExceptionHelper() {
+    return exceptionHelper;
+  }
+%}
+
+
+%exception {
+    jmp_buf glp_cli_env;
+
+    if (glp_cli_msg_level != GLP_CLI_MSG_LVL_OFF) {
+        glp_printf("entering function $name.\n");
+    }
+    glp_cli_callback_env[glp_cli_callback_level] = &glp_cli_env;
+    if (setjmp(glp_cli_env)) {
+        SWIG_CSharpSetPendingExceptionCustom("function $name failed");
+    } else {
+        glp_error_hook(glp_cli_error_hook, &glp_cli_env);
+        $action;
+    }
+    glp_cli_callback_env[glp_cli_callback_level] = NULL;
+    glp_error_hook(NULL, NULL);
+    if (glp_cli_msg_level != GLP_CLI_MSG_LVL_OFF) {
+        glp_printf("leaving function $name.\n");
+    }
+}
+
 %include "carrays.i"
 %array_functions(double, doubleArray);
 %array_functions(int, intArray);
