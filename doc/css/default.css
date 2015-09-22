@@ -1,0 +1,248 @@
+body {
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    color: #000000;
+    background-color: #666666;
+    margin: 0px;
+    padding: 0px 50px 0px 50px;
+}
+
+div {
+    margin:  0px;
+    padding: 0px;
+}
+
+p, table {
+    margin:  0px;
+    padding: 0px 10px 10px 0px;
+}
+
+.syntax {
+    padding: 5px;
+    margin: 0px 10px 10px 0px;
+    font-size: 16px;
+    border: black 1px solid;
+    background-color: #ccddee;
+}
+
+p.pre {
+    font-family: monospace;
+    font-size: 16px;
+    padding: 0;
+    margin: 0px 10px 10px 40px;
+}
+
+pre {
+    white-space: pre-wrap;
+    font-family: monospace;
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px 10px 10px 40px;
+}
+
+a {
+    color: #0055aa;
+}
+
+a:visited {
+    color: #666666;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #0055aa;
+    margin:  0px;
+    padding: 10px 10px 10px 0px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+h5 {
+    color: #0055aa;
+    font-size: 12px;
+    padding: 0px 0px 0px 0px;
+}
+
+
+img{
+    margin:  0px;
+    padding: 0px;
+    border-width: 0px;
+}
+
+#container {
+    background-color: #ffffff;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    min-width: 600px;
+}
+
+#logo {
+    background-color: #000000;
+    background-image: url(../images/flower.jpg);
+    background-repeat:no-repeat;
+    color: #ffffff;
+    height: 60px;
+    font-size: 48px;
+    padding-top: 40px;
+    padding-left: 150px;
+} 
+
+#nav {
+    padding: 3px 5px 3px 5px;
+    background-color: #cccccc;
+    padding: 0px;
+    font-size: 12px;
+    color: #000000;
+    margin: 0px;
+    border-bottom: 1px solid #666666;
+}
+
+#nav a {
+    text-decoration: none;
+}
+#nav a:visited {
+    color: #0055aa;
+}
+#nav a:hover {
+    background-color: #999999;
+}
+
+#summary {
+    background-color: #eeeeee;
+    font-style: italic; 
+    text-align: center;
+    padding: 5px;
+    width: 120px;
+    float: right;
+}
+
+#main {
+    background-color: #ffffff;
+    clear: left;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 50px 150px;
+}
+
+
+#links {
+    font-family: "Arial", sans-serif;
+    background-color: #cccccc;
+    position: absolute;
+    padding: 3px 5px 3px 5px;
+    margin: 0px;
+    left: 50px; top: 140px; width: 120px;
+    border-style: solid;
+    border-color: #666666;
+    border-width: 1px 1px 1px 0px;
+    color: #000000;
+    font-size: 12px;
+}
+
+#links ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#links li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    padding-left: 6px;
+}
+
+#links a {
+    padding: 0px;
+    color: #333333;
+    text-decoration: none;
+}
+
+#links a:hover {
+    padding: 0px;
+    color: #333333;
+    background-color: #999999;
+    text-decoration: none;
+}
+
+#links a:visited {
+    padding: 0px;
+    margin: 0px;
+    color: #333333;
+    text-decoration: none;
+}
+
+#footer {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Arial", sans-serif;
+    font-size: 12px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1023px) {
+    body {
+        padding: 0px 0px 0px 0px;
+    }
+    #links{
+        left: 0px; top: 140px; width: 120px;
+    }
+}
+
+@media screen and (max-width: 799px) {
+    body {
+        padding: 0px 0px 0px 0px;
+    }
+    #main {
+        padding: 0px 0px 50px 0px;
+    }
+    #links{
+        position: relative;
+        margin: 20px 0px 10px 0px;
+        left: 0px; top: 0px; width: 120px;
+    }
+}
+
+@media print {
+    body {
+        color: #000000;
+        background-color: #ffffff;
+        padding: 0px 0px 0px 0px;
+    }
+
+    #logo {
+        background-color: #ffffff;
+        color: #0055aa;
+        padding: 0px 0px 0px 0px;
+    } 
+
+    #nav {
+        padding: 3px 5px 3px 5px;
+        visibility: hidden;
+    }
+
+
+    #main {
+        padding: 0px 0px 0px 0px;
+    }
+
+    #links {
+        visibility: hidden;
+    }
+
+    #footer {
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+}

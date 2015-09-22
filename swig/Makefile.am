@@ -1,4 +1,4 @@
-EXTRA_DIST = *.i
+EXTRA_DIST = *.i *.cs
 
 # current:revision:age
 # library implements all interface numbers
