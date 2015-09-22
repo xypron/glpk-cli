@@ -137,7 +137,7 @@ glp_cli_vertex_data *glp_cli_vertex_get_data(
     }
 
     // Note that SWIG detects any method calls named starting with
-    // SWIG_CSharpSetPendingException for warning 845
+    // SWIG_CSharpSetPendingException
     static void SWIG_CSharpSetPendingExceptionCustom(const char *msg) {
       customExceptionCallback(msg);
     }
