@@ -5,7 +5,7 @@ namespace org.gnu.glpk {
 
     /**
      * This class manages callbacks from the MIP solver.
-     * <p>The GLPK MIP solver calls method {@link #callback(long) callback} in
+     * <p>The GLPK MIP solver calls method {@link #callback(IntPtr) callback} in
      * the branch-and-cut algorithm. A listener to the callback can be used to
      * influence the sequence in which nodes of the search tree are evaluated,
      * or to supply a heuristic solution. To find out why the callback is
