@@ -1,8 +1,8 @@
-dnl GLPK for the Common Intermediate Language (CIL)
+dnl GLPK for C# and the Common Language Interface (CLI)
 
 dnl Initialization
-AC_INIT([GLPK for CIL], [1.0.0], [xypron.glpk@gmx.de],
-  [libglpk-cil], [https://github.com/xypron/glpk-cil])
+AC_INIT([GLPK for C#/CLI], [1.0.0], [xypron.glpk@gmx.de],
+  [libglpk-cli], [https://github.com/xypron/glpk-cli])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE
