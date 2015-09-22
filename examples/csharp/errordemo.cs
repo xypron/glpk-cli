@@ -5,9 +5,25 @@ using org.gnu.glpk;
  * This example file demonstrates how to safely treat errors when calling the
  * glpk library, if the error occurs in the callback function.
  */
-public class ErrorDemo {
+public class ErrorDemo : IGlpkCallbackListener {
 
     static bool forceError = true;
+
+    public void callback(glp_tree tree) {
+        glp_prob prob;
+        if (GLPK.glp_ios_reason(tree) == GLPK.GLP_IROWGEN) {
+            prob = GLPK.glp_ios_get_prob(tree);
+            if (forceError) {
+                GLPK.glp_cli_set_msg_lvl(GLPK.GLP_CLI_MSG_LVL_ALL);
+                try {
+                    GLPK.glp_add_rows(prob, -1);
+                } catch (GlpkException ex) {
+                    Console.WriteLine("Error in callback: " + ex.Message);
+                }
+                GLPK.glp_cli_set_msg_lvl(GLPK.GLP_CLI_MSG_LVL_OFF);
+            }
+        }
+    }
 
     /**
      * This is the main function.
