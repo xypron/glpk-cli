@@ -197,4 +197,5 @@ glp_cli_vertex_data *glp_cli_vertex_get_data(
 %glp_array_functions(int, intArray);
 
 %include "glpk_cli.i"
+%include "glpk_doc.i"
 %include "glpk.h"
