@@ -192,9 +192,9 @@ glp_cli_vertex_data *glp_cli_vertex_get_data(
     }
 }
 
-%include "carrays.i"
-%array_functions(double, doubleArray);
-%array_functions(int, intArray);
+%include "glpk_cli_arrays.i"
+%glp_array_functions(double, doubleArray);
+%glp_array_functions(int, intArray);
 
 %include "glpk_cli.i"
 %include "glpk.h"
