@@ -49,6 +49,10 @@ check:
 	errordemo.cs
 	export MONO_PATH="../../swig" && \
 	cd ../examples/csharp && ./errordemo.exe
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	gmpl.cs
+	export MONO_PATH="../../swig" && \
+	cd ../examples/csharp && ./gmpl.exe marbles.mod
 
 dist-hook:
 	rm -rf `find $(distdir) -name '*~'`
