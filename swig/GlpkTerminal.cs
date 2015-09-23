@@ -53,6 +53,7 @@ namespace org.gnu.glpk {
          * @param listener listener for callbacks
          */
         public static void addListener(IGlpkTerminalListener listener) {
+            GLPK.glp_term_hook(null, null);
             listeners.AddLast(listener);
         }
 

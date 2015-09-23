@@ -31,11 +31,13 @@
 #include <setjmp.h>
 
 typedef void (SWIGSTDCALL* CSharpGlpkCallback_t)(void*);
+typedef int (SWIGSTDCALL* CSharpGlpkTerminal_t)(const char*);
 
 /*
  * Callback functions.
  */
 CSharpGlpkCallback_t glpkCallback = NULL;
+CSharpGlpkTerminal_t glpkTerminal = NULL;
 
 /*
  * Function declarations
@@ -78,6 +80,14 @@ void glp_cli_set_numeric_locale(const char *locale) {
 }
 
 /**
+ * Registers delegate for terminal hook method.
+ */
+extern SWIGEXPORT void SWIGSTDCALL
+    registerGlpkTerminal(CSharpGlpkTerminal_t value) {
+        glpkTerminal = value;
+}
+
+/**
  * Terminal hook function.
  */
 int glp_cli_term_hook(void *info, const char *s) {
@@ -88,6 +98,9 @@ int glp_cli_term_hook(void *info, const char *s) {
         glp_cli_error_occured = 1;
     } else {
         glp_cli_error_occured = 0;
+        if (glpkTerminal) {
+            ret = glpkTerminal(s);
+        }
     }
     glp_cli_callback_level--;
     if (glp_cli_error_occured) {
@@ -114,7 +127,9 @@ void glp_cli_cb(glp_tree *tree, void *info) {
         glp_cli_error_occured = 1;
     } else {
         glp_cli_error_occured = 0;
-        glpkCallback(tree);
+        if (glpkCallback) {
+            glpkCallback(tree);
+        }
     }
     glp_cli_callback_level--;
     if (glp_cli_error_occured) {
@@ -189,6 +204,34 @@ glp_cli_vertex_data *glp_cli_vertex_get_data(
     return v->data;
 }
 
+%}
+
+%pragma(csharp) imclasscode=%{
+    class GlpkTerminalHelper {
+        public delegate int GlpkTerminalDelegate(System.IntPtr msg);
+        static GlpkTerminalDelegate glpkTerminalDelegate =
+            new GlpkTerminalDelegate(callback);
+
+        static int callback(System.IntPtr msg) {
+            return org.gnu.glpk.GlpkTerminal.callback(
+                System.Runtime.InteropServices.Marshal.PtrToStringAnsi(msg));
+        }
+
+        [global::System.Runtime.InteropServices.DllImport(
+                "$dllimport", EntryPoint="registerGlpkTerminal")]
+        public static extern
+                void registerGlpkTerminal(
+                        GlpkTerminalDelegate value);
+
+        static GlpkTerminalHelper() {
+            registerGlpkTerminal(glpkTerminalDelegate);
+        }
+    }
+    static GlpkTerminalHelper glpkTerminalHelper = new GlpkTerminalHelper();
+    // This method is only introduced to avoid a warning.
+    private static GlpkTerminalHelper getGlpkTerminalHelper() {
+        return glpkTerminalHelper;
+    }
 %}
 
 %pragma(csharp) imclasscode=%{
