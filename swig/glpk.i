@@ -7,11 +7,35 @@
 %typemap(in) (va_list arg) {
 }
 
+/* The function glp_term_hook is modified to preset
+ * the callback function.
+ */
+%exception glp_term_hook  {
+  arg1 = glp_cli_term_hook;
+  arg2 = NULL;
+  $action
+}
+
+/* The function glp_init_iocp is modified to preset
+ * the callback function.
+ */
+%typemap(out) void glp_init_iocp {
+  arg1->cb_func = glp_cli_cb;
+  arg1->cb_info = NULL;
+}
+
 %{
 #include "glpk.h"
 #include "glpk_cli.h"
 #include <locale.h>
 #include <setjmp.h>
+
+typedef void (SWIGSTDCALL* CSharpGlpkCallback_t)(void*);
+
+/*
+ * Callback functions.
+ */
+CSharpGlpkCallback_t glpkCallback = NULL;
 
 /*
  * Function declarations
@@ -51,6 +75,51 @@ void glp_cli_set_msg_lvl(int msg_lvl) {
  */
 void glp_cli_set_numeric_locale(const char *locale) {
     setlocale(LC_NUMERIC, locale);
+}
+
+/**
+ * Terminal hook function.
+ */
+int glp_cli_term_hook(void *info, const char *s) {
+    int ret = 0;
+
+    glp_cli_callback_level++;
+    if (glp_cli_callback_level >= GLP_CLI_MAX_CALLBACK_LEVEL) {
+        glp_cli_error_occured = 1;
+    } else {
+        glp_cli_error_occured = 0;
+    }
+    glp_cli_callback_level--;
+    if (glp_cli_error_occured) {
+       longjmp(*glp_cli_callback_env[glp_cli_callback_level], 1);
+    }
+    return ret;
+}
+
+/**
+ * Registers delegate for MIP callback method.
+ */
+extern SWIGEXPORT
+    void SWIGSTDCALL registerGlpkCallback(CSharpGlpkCallback_t value) {
+        glpkCallback = value;
+}
+
+/**
+ * Call back function for MIP solver
+ */
+void glp_cli_cb(glp_tree *tree, void *info) {
+
+    glp_cli_callback_level++;
+    if (glp_cli_callback_level >= GLP_CLI_MAX_CALLBACK_LEVEL) {
+        glp_cli_error_occured = 1;
+    } else {
+        glp_cli_error_occured = 0;
+        glpkCallback(tree);
+    }
+    glp_cli_callback_level--;
+    if (glp_cli_error_occured) {
+       longjmp(*glp_cli_callback_env[glp_cli_callback_level], 1);
+    }
 }
 
 /**
@@ -120,6 +189,33 @@ glp_cli_vertex_data *glp_cli_vertex_get_data(
     return v->data;
 }
 
+%}
+
+%pragma(csharp) imclasscode=%{
+    class GlpkCallbackHelper {
+        public delegate void GlpkCallbackDelegate(System.IntPtr tree);
+        static GlpkCallbackDelegate glpkCallbackDelegate =
+            new GlpkCallbackDelegate(callback);
+
+        static void callback(System.IntPtr tree) {
+            org.gnu.glpk.GlpkCallback.callback(tree);
+        }
+
+        [global::System.Runtime.InteropServices.DllImport(
+                "$dllimport", EntryPoint="registerGlpkCallback")]
+        public static extern
+                void registerGlpkCallback(
+                        GlpkCallbackDelegate value);
+
+        static GlpkCallbackHelper() {
+            registerGlpkCallback(glpkCallbackDelegate);
+        }
+    }
+    static GlpkCallbackHelper glpkCallbackHelper = new GlpkCallbackHelper();
+    // This method is only introduced to avoid a warning.
+    private static GlpkCallbackHelper getGlpkCallbackHelper() {
+        return glpkCallbackHelper;
+    }
 %}
 
 // Exception handling

@@ -30,6 +30,7 @@ public class ErrorDemo : IGlpkCallbackListener {
      */
     static void Main(string[] args) {
         ErrorDemo d = new ErrorDemo();
+	GlpkCallback.addListener(d);
         Console.WriteLine("GLPK version: " + GLPK.glp_version());
 
         for (int i = 1; i < 5; i++) {
@@ -72,11 +73,6 @@ public class ErrorDemo : IGlpkCallbackListener {
             Console.WriteLine("Problem created");
             GLPK.glp_set_prob_name(lp, "myProblem");
 
-            // cause error
-            if (forceError) {
-                GLPK.glp_add_cols(lp, -1);
-            }
-            
             //  Define columns
             GLPK.glp_add_cols(lp, 2);
             GLPK.glp_set_col_name(lp, 1, "x1");
