@@ -68,8 +68,24 @@ files
 You will probably want to add /usr/local/lib/glpk-cli to the MONO\_PATH and
 the LD\_LIBRARY\_PATH environment variables.
 
+The following example shows how to compile an application version.exe which
+writes the GLPK version number to the console.
+
     export MONO_PATH=/usr/local/lib/glpk-cli
     export LD_LIBRARY_PATH=/usr/local/lib/glpk-cli
+    cat > version.cs << EOF
+    using System;
+    using org.gnu.glpk;
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("GLPK " + GLPK.glp_version());
+        }
+    }
+    EOF
+    mcs -r:libglpk-cli -lib:/usr/local/lib/glpk-cli/ version.cs
+    ./version.exe
 
 ### Windows
 
