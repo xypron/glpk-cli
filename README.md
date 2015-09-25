@@ -29,6 +29,7 @@ To build the package on Linux execute the following commands.
 ### Windows
 
 To build the package on Windows:
+
 * Copy file glpk.h to new directory src.
 * Copy files glpk_?_??.* to directory w64.
 * Cd to directory w64.
@@ -38,6 +39,6 @@ To build the package on Windows:
 For building you own application you will need the following files from
 the w64 directory:
 
-glpk_?_??.dll - the GLPK native library
-libglpk_cli_native.dll - the GLPK for C#/CLI native library
-libglpk_cli.dll - the GLPK for C#/CLI assembly
+* glpk_?_??.dll - the GLPK native library
+* libglpk_cli_native.dll - the GLPK for C#/CLI native library
+* libglpk_cli.dll - the GLPK for C#/CLI assembly
