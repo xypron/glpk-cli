@@ -9,11 +9,11 @@ OBJSET = \
 .c.obj:
 	cl.exe $(CFLAGS) /Fo$*.obj /c $*.c
 
-all: glpk_$(GLPKVERS)_cli.dll
+all: libglpk_cli.dll
 
-glpk_$(GLPKVERS)_cli.dll: $(OBJSET)
-        cl.exe $(CFLAGS) /LD /Feglpk_$(GLPKVERS)_cli.dll \
+libglpk_cli.dll: $(OBJSET)
+        cl.exe $(CFLAGS) /LD /Felibglpk_cli_native.dll \
           ..\swig\src\c\glpk_wrap.obj glpk_cli_dll.res glpk_$(GLPKVERS).lib
 
 check:
-	check_jni.bat
+	check_cli.bat
