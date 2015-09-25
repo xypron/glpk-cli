@@ -94,8 +94,8 @@ To build the package on Windows:
 * Copy file glpk.h to new directory src.
 * Copy files glpk\_?\_??.\* to directory w64.
 * Cd to directory w64.
-* Verify the paths in Build\_CLI\_with\_VC14\_DLL.bat.
-* Execute Build\_CLI\_with\_VC14\_DLL.bat
+* Verify the paths in Build\_CLI.bat.
+* Execute Build\_CLI.bat
 
 For building and running your own application you will need the following files
 from the w64 directory:
