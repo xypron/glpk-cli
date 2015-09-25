@@ -6,13 +6,45 @@ The GLPK for C# and the Common Language Infrastructure (CLI) package provides a
 language binding that can be used with C# and other CLI supported languages
 like F#.
 
+The project homepage is http://glpk-cli.sourceforge.net.
+
+GLPK for C#/CLI provides a common language interface binding for the GLPK linear
+programming library. It allows you to use the Gnu Linear Programming Kit with all
+.NET/Mono languages (C#, F#, Python, J#, Scala, Visual Basic, ...).
+
+Makefiles for Windows and Linux are provided.
+
+To report problems and suggestions concerning GLPK for C#/CLI, please, send an
+email to the author at xypron.glpk@gmx.de.
+
+The GNU Linear Programming Kit (GLPK) supplies a solver for large scale linear
+programming (LP) and mixed integer programming (MIP). The GLPK project is hosted
+at http://www.gnu.org/software/glpk.
+
+It has two mailing lists:
+
+* help-glpk@gnu.org and
+* bug-glpk@gnu.org.
+
+To subscribe to one of these lists, please, send an empty mail with a Subject:
+header line of just "subscribe" to the list.
+
+GLPK provides a library written in C and a standalone solver.
+
+The source code provided at ftp://gnu.ftp.org/gnu/glpk/ contains the
+documentation of the library in file doc/glpk.pdf. This should be your first
+reference for the usage of the library.
+
 ## Obtaining the source
 
-The source repository is located at https://github.com/xypron/glpk-cli.
-It can be downloaded with
+The latest release of "GLPK for C#/CLI" is available at
+http://sourceforge.net/projects/glpk-cli/
+
+You can download the latest development version from the git repository with
 
     git clone https://github.com/xypron/glpk-cli.git
 
+or view it the repository at https://github.com/xypron/glpk-cli/.
 
 ## Building from source
 
@@ -26,19 +58,41 @@ To build the package on Linux execute the following commands.
     make check
     sudo make install
 
+For building and running your own application you will need to the following
+files
+
+* /usr/local/lib/libglpk.so - the GLPK native library
+* /usr/local/lib/glpk-cli/libglpk-cli.so - the GLPK for C#/CLI native library
+* /usr/local/lib/glpk-cli/libglpk-cli.dll - the GLPK for C#/CLI assembly
+
+You will probably want to add /usr/local/lib/glpk-cli to the MONO\_PATH and
+the LD\_LIBRARY\_PATH environment variables.
+
+    export MONO_PATH=/usr/local/lib/glpk-cli
+    export LD_LIBRARY_PATH=/usr/local/lib/glpk-cli
+
 ### Windows
 
 To build the package on Windows:
 
 * Copy file glpk.h to new directory src.
-* Copy files glpk_?_??.* to directory w64.
+* Copy files glpk\_?\_??.\* to directory w64.
 * Cd to directory w64.
-* Verify the paths in Build_CLI_with_VC14_DLL.bat.
-* Execute Build_CLI_with_VC14_DLL.bat
+* Verify the paths in Build\_CLI\_with\_VC14\_DLL.bat.
+* Execute Build\_CLI\_with\_VC14\_DLL.bat
 
-For building your own application you will need the following files from
-the w64 directory:
+For building and running your own application you will need the following files
+from the w64 directory:
 
-* glpk_?_??.dll - the GLPK native library
-* libglpk_cli_native.dll - the GLPK for C#/CLI native library
-* libglpk_cli.dll - the GLPK for C#/CLI assembly
+* glpk\_?\_??.dll - the GLPK native library
+* libglpk\_cli\_native.dll - the GLPK for C#/CLI native library
+* libglpk\_cli.dll - the GLPK for C#/CLI assembly
+
+## Open issues
+
+* Incomplete documentation
+* Missing support for network optimization
+
+## Revision history
+1.0.0 - 2015-09-26
+* initial release
