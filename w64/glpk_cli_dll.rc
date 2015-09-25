@@ -13,11 +13,11 @@ BEGIN
         BLOCK "040904E4"
         BEGIN
             VALUE "CompanyName",      "Xypron\0"
-            VALUE "FileDescription",  "CLI wrapper for GLPK\0"
+            VALUE "FileDescription",  "CLI wrapper for GLPK 4.55\0"
             VALUE "FileVersion",      "1.0.0.0\0"
-            VALUE "InternalName",     "glpk_4_55_cli.dll\0"
+            VALUE "InternalName",     "libglpk_cli_native.dll\0"
             VALUE "LegalCopyright",   "Heinrich Schuchardt, GPL v3"
-            VALUE "OriginalFilename", "glpk_4_55_cli.dll\0"
+            VALUE "OriginalFilename", "libglpk_cli_native.dll\0"
             VALUE "ProductName",      "GLPK for C#/CLI - http://glpk-cli.sourceforge.net\0"
             VALUE "ProductVersion",   "1.0.0.0\0"        
         END
