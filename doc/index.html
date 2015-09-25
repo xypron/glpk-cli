@@ -26,6 +26,7 @@
                         <ul>
                             <li><a href="#introduction">Introduction</a></li>
                             <li><a href="#download">Download</a></li>
+                            <li><a href="#build">Building from source</a></li>
                             <li><a href="#license">License</a></li>
                         </ul></li>
                 </ul>
@@ -78,6 +79,56 @@
                 <p>or view it the repository at <a 
                         href="https://github.com/xypron/glpk-cli"
                         >https://github.com/xypron/glpk-cli/</a>.</p>
+                <h1><a id="build">Building from source</a></h1>
+                <h2>Linux</h2>
+                <p>To build the package on Linux execute the following
+                commands.</p>
+<pre>./configure
+make
+make check
+sudo make install</pre>
+                <p>For building and running your own application you will need
+		to the following files</p>
+                <ul>
+		<li>/usr/local/lib/libglpk.so - the GLPK native library</li>
+		<li>/usr/local/lib/glpk-cli/libglpk-cli.so - the GLPK for C#/CLI
+		native library</li>
+		<li>/usr/local/lib/glpk-cli/libglpk-cli.dll - the GLPK for
+		C#/CLI assembly</li></ul>
+		<p>You will probably want to add /usr/local/lib/glpk-cli to the
+		MONO_PATH and the LD_LIBRARY_PATH environment variables.</p>
+		<p>The following example shows how to compile an application
+		version.exe which writes the GLPK version number to the
+		console.</p>
+<pre>export MONO_PATH=/usr/local/lib/glpk-cli
+export LD_LIBRARY_PATH=/usr/local/lib/glpk-cli
+cat &gt; version.cs &lt;&lt; EOF
+using System;
+using org.gnu.glpk;
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("GLPK " + GLPK.glp_version());
+    }
+}
+EOF
+mcs -r:libglpk-cli -lib:/usr/local/lib/glpk-cli/ version.cs
+./version.exe</pre>
+                <h2>Windows</h2>
+		<p>To build the package on Windows:</p>
+		<ul>
+		<li>Copy file glpk.h to new directory src.</li>
+		<li>Copy files glpk_?_??.* to directory w64.</li>
+		<li>Cd to directory w64.</li>
+		<li>Verify the paths in Build_CLI.bat.</li>
+		<li>Execute Build_CLI.bat</li>
+		</ul>
+		<p>For building and running your own application you will need
+		the following files from the w64 directory:</p>
+                <ul><li>glpk_?_??.dll - the GLPK native library</li>
+		<li>libglpk_cli_native.dll - the GLPK for C#/CLI native library</li>
+		<li>libglpk_cli.dll - the GLPK for C#/CLI assembly</li></ul>
                 <h1><a id="license">License</a></h1>
                 <p>GLPK for C#/CLI is licensed under the GNU Public License 3.0.
                 </p>
