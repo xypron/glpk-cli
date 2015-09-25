@@ -36,7 +36,7 @@ To build the package on Windows:
 * Verify the paths in Build_CLI_with_VC14_DLL.bat.
 * Execute Build_CLI_with_VC14_DLL.bat
 
-For building you own application you will need the following files from
+For building your own application you will need the following files from
 the w64 directory:
 
 * glpk_?_??.dll - the GLPK native library
