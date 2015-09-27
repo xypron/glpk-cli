@@ -69,7 +69,7 @@ You will probably want to add /usr/local/lib/glpk-cli to the MONO\_PATH and
 the LD\_LIBRARY\_PATH environment variables.
 
 The following example shows how to compile an application version.exe which
-writes the GLPK version number to the console.
+writes the GLPK version number to the console in C#.
 
     export MONO_PATH=/usr/local/lib/glpk-cli
     export LD_LIBRARY_PATH=/usr/local/lib/glpk-cli
@@ -85,6 +85,24 @@ writes the GLPK version number to the console.
     }
     EOF
     mcs -r:libglpk-cli -lib:/usr/local/lib/glpk-cli/ version.cs
+    ./version.exe
+
+The following example shows how to compile an application version.exe which
+writes the GLPK version number to the console in Visual Basic.
+
+    export MONO_PATH=/usr/local/lib/glpk-cli
+    export LD_LIBRARY_PATH=/usr/local/lib/glpk-cli
+    cat > version.vb << EOF
+    Imports System
+    Imports org.gnu.glpk
+    Public Module module1
+        Sub Main()
+            Console.WriteLine ("GLPK " + GLPK.glp_version())
+        End Sub
+    End Module
+    EOF
+    vbnc -r:libglpk-cli -libpath:/usr/local/lib/glpk-cli/ version.vb
+    chmod 755 version.exe
     ./version.exe
 
 ### Windows
