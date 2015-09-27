@@ -340,7 +340,7 @@ public class LinOrd : IGlpkCallbackListener
 	{
 		LinOrd l = new LinOrd ();
 		if (args.Length != 2) {
-			Console.WriteLine ("Usage: linord infile outfile\n\n"
+			Console.WriteLine ("Usage: linord.exe infile outfile\n\n"
 				+ "e.g. linord tiw56r72.mat solution.txt");
 			return;
 		}

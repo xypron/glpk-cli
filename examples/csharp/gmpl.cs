@@ -8,7 +8,7 @@ public class Gmpl : IGlpkCallbackListener, IGlpkTerminalListener
 	public static void Main (string[] arg)
 	{
 		if (1 != arg.Length) {
-			Console.WriteLine ("Usage: java Gmpl model.mod");
+			Console.WriteLine ("Usage: gmpl.exe model.mod");
 			return;
 		}
 		GLPK.glp_cli_set_numeric_locale ("C");
