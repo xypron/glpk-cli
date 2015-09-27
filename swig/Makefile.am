@@ -57,6 +57,16 @@ check:
 	linord.cs
 	export MONO_PATH="../../swig" && \
 	cd ../examples/csharp && ./linord.exe tiw56r72.mat mincost.lp
+	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
+	version.vb
+	cd ../examples/vb && chmod 755 version.exe
+	export MONO_PATH="../../swig" && \
+	cd ../examples/vb && ./version.exe
+	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
+	lp.vb
+	cd ../examples/vb && chmod 755 lp.exe
+	export MONO_PATH="../../swig" && \
+	cd ../examples/vb && ./lp.exe
 
 dist-hook:
 	rm -rf `find $(distdir) -name '*~'`

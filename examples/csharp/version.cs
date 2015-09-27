@@ -7,4 +7,4 @@ class Program
 	{
 		Console.WriteLine ("GLPK " + GLPK.glp_version ());
 	}
-} 
+}
