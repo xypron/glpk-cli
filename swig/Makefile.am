@@ -68,6 +68,11 @@ check:
 	export MONO_PATH="../../swig" && \
 	cd ../examples/vb && ./lp.exe
 	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
+	errordemo.vb
+	cd ../examples/vb && chmod 755 errordemo.exe
+	export MONO_PATH="../../swig" && \
+	cd ../examples/vb && ./errordemo.exe
+	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
 	gmpl.vb
 	cd ../examples/vb && chmod 755 gmpl.exe
 	export MONO_PATH="../../swig" && \
