@@ -32,7 +32,7 @@ PROJECT_NAME           = "GLPK for C#/CLI"
 # This could be handy for archiving the generated documentation or
 # if some version control system is used.
 
-PROJECT_NUMBER         = 1.0.1
+PROJECT_NUMBER         = 1.0.2
 
 # Using the PROJECT_BRIEF tag one can provide an optional one line description
 # for a project that appears at the top of each page and should give viewer
@@ -167,7 +167,7 @@ QT_AUTOBRIEF           = NO
 # The new default is to treat a multi-line C++ comment block as a detailed
 # description. Set this tag to YES if you prefer the old behaviour instead.
 
-MULTILINE_CPP_IS_BRIEF = NO
+ULTILINE_CPP_IS_BRIEF = NO
 
 # If the INHERIT_DOCS tag is set to YES (the default) then an undocumented
 # member inherits the documentation from any documented member that it
@@ -498,7 +498,7 @@ ENABLED_SECTIONS       =
 # documentation can be controlled using \showinitializer or \hideinitializer
 # command in the documentation regardless of this setting.
 
-MAX_INITIALIZER_LINES  = 30
+AX_INITIALIZER_LINES  = 30
 
 # Set the SHOW_USED_FILES tag to NO to disable the list of files generated
 # at the bottom of the documentation of classes and structs. If set to YES the
@@ -1119,12 +1119,12 @@ USE_MATHJAX            = NO
 # MathJax, but it is strongly recommended to install a local copy of MathJax
 # before deployment.
 
-MATHJAX_RELPATH        = http://www.mathjax.org/mathjax
+ATHJAX_RELPATH        = http://www.mathjax.org/mathjax
 
 # The MATHJAX_EXTENSIONS tag can be used to specify one or MathJax extension
 # names that should be enabled during MathJax rendering.
 
-MATHJAX_EXTENSIONS     =
+ATHJAX_EXTENSIONS     =
 
 # When the SEARCHENGINE tag is enabled doxygen will generate a search box
 # for the HTML output. The underlying search engine uses javascript
@@ -1173,7 +1173,7 @@ LATEX_CMD_NAME         = latex
 # generate index for LaTeX. If left blank `makeindex' will be used as the
 # default command name.
 
-MAKEINDEX_CMD_NAME     = makeindex
+AKEINDEX_CMD_NAME     = makeindex
 
 # If the COMPACT_LATEX tag is set to YES Doxygen generates more compact
 # LaTeX documents. This may be useful for small projects and may help to
@@ -1300,12 +1300,12 @@ GENERATE_MAN           = NO
 # If a relative path is entered the value of OUTPUT_DIRECTORY will be
 # put in front of it. If left blank `man' will be used as the default path.
 
-MAN_OUTPUT             = man
+AN_OUTPUT             = man
 
 # The MAN_EXTENSION tag determines the extension that is added to
 # the generated man pages (default is the subroutine's section .3)
 
-MAN_EXTENSION          = .3
+AN_EXTENSION          = .3
 
 # If the MAN_LINKS tag is set to YES and Doxygen generates man output,
 # then it will generate one additional man file for each entity
@@ -1313,7 +1313,7 @@ MAN_EXTENSION          = .3
 # only source the real man page, but without them the man command
 # would be unable to find the correct page. The default is NO.
 
-MAN_LINKS              = NO
+AN_LINKS              = NO
 
 #---------------------------------------------------------------------------
 # configuration options related to the XML output
@@ -1400,7 +1400,7 @@ ENABLE_PREPROCESSING   = YES
 # compilation will be performed. Macro expansion can be done in a controlled
 # way by setting EXPAND_ONLY_PREDEF to YES.
 
-MACRO_EXPANSION        = NO
+ACRO_EXPANSION        = NO
 
 # If the EXPAND_ONLY_PREDEF and MACRO_EXPANSION tags are both set to YES
 # then the macro expansion is limited to the macros specified with the
@@ -1515,7 +1515,7 @@ CLASS_DIAGRAMS         = YES
 # the mscgen tool resides. If left empty the tool is assumed to be found in the
 # default search path.
 
-MSCGEN_PATH            =
+SCGEN_PATH            =
 
 # If set to YES, the inheritance and collaboration graphs will hide
 # inheritance and usage relations if the target is undocumented
@@ -1662,7 +1662,7 @@ DOTFILE_DIRS           =
 # contain msc files that are included in the documentation (see the
 # \mscfile command).
 
-MSCFILE_DIRS           =
+SCFILE_DIRS           =
 
 # The DOT_GRAPH_MAX_NODES tag can be used to set the maximum number of
 # nodes that will be shown in the graph. If the number of nodes in a graph
@@ -1682,7 +1682,7 @@ DOT_GRAPH_MAX_NODES    = 50
 # code bases. Also note that the size of a graph can be further restricted by
 # DOT_GRAPH_MAX_NODES. Using a depth of 0 means no depth restriction.
 
-MAX_DOT_GRAPH_DEPTH    = 0
+AX_DOT_GRAPH_DEPTH    = 0
 
 # Set the DOT_TRANSPARENT tag to YES to generate images with a transparent
 # background. This is disabled by default, because dot on Windows does not

@@ -1,7 +1,7 @@
 #include "VerRsrc.h"
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION            1,0,1,0
-PRODUCTVERSION         1,0,1,0
+FILEVERSION            1,0,2,0
+PRODUCTVERSION         1,0,2,0
 FILEFLAGSMASK          0
 FILEFLAGS              0
 FILEOS                 VOS_UNKNOWN
@@ -14,12 +14,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName",      "Xypron\0"
             VALUE "FileDescription",  "CLI wrapper for GLPK 4.55\0"
-            VALUE "FileVersion",      "1.0.1.0\0"
+            VALUE "FileVersion",      "1.0.2.0\0"
             VALUE "InternalName",     "libglpk_cli_native.dll\0"
             VALUE "LegalCopyright",   "Heinrich Schuchardt, GPL v3"
             VALUE "OriginalFilename", "libglpk_cli_native.dll\0"
             VALUE "ProductName",      "GLPK for C#/CLI - http://glpk-cli.sourceforge.net\0"
-            VALUE "ProductVersion",   "1.0.1.0\0"
+            VALUE "ProductVersion",   "1.0.2.0\0"
         END
     END
     BLOCK "VarFileInfo"
