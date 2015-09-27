@@ -1,10 +1,10 @@
 using System;
 using org.gnu.glpk;
 
-class Program  
+class Program
 {  
-    static void Main(string[] args)  
-    {  
-        Console.WriteLine("GLPK " + GLPK.glp_version());
-    }  
+	static void Main (string[] args)
+	{
+		Console.WriteLine ("GLPK " + GLPK.glp_version ());
+	}
 } 
