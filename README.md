@@ -128,7 +128,11 @@ from the w64 directory:
 * Missing support for network optimization
 
 ## Revision history
+
 1.0.1 - 2015-09-27
+
 * Visual Basic examples added
+
 1.0.0 - 2015-09-26
+
 * initial release
