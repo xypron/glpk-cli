@@ -1,7 +1,7 @@
 dnl GLPK for C# and the Common Language Interface (CLI)
 
 dnl Initialization
-AC_INIT([GLPK for C#/CLI], [1.0.0], [xypron.glpk@gmx.de],
+AC_INIT([GLPK for C#/CLI], [1.0.1], [xypron.glpk@gmx.de],
   [libglpk-cli], [https://github.com/xypron/glpk-cli])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
