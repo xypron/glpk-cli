@@ -1,6 +1,7 @@
-rem Build GLPK JNI DLL with Microsoft Visual Studio Express 2010
+rem Build GLPK for C#/CLI DLL with Microsoft Visual Studio Community 2015
+rem and Windows SDK 7.1.
 rem NOTE: Make sure that the following variables specify correct paths:
-rem HOME, SWIG, JAVA_HOME, GLPK_HOME
+rem HOME, SWIG, SDK, NET.
 
 rem Path to GLPK source (glpk.h will be in $(GLPK_HOME)/src)
 set GLPK_HOME=".."
