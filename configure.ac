@@ -27,12 +27,6 @@ AC_PATH_PROG([MCS],[mcs])
 if test "x$MCS" == "x"; then
   AC_MSG_ERROR([mcs is missing])
 fi
-AC_PATH_PROG([MVN],[mvn])
-AM_CONDITIONAL([HAVEMVN], [test "x$MVN" != "x"])
-AM_COND_IF([HAVEMVN],
-  [],
-  AC_MSG_WARN([Maven is missing])
-  )
 
 dnl SWIG
 AC_ARG_VAR([SWIGFLAGS],[The list of flags that should be passed to SWIG.])
