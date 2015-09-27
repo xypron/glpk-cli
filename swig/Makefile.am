@@ -3,7 +3,7 @@ EXTRA_DIST = *.i *.cs
 # current:revision:age
 # library implements all interface numbers
 # in the range from number current - age to current
-VERSION_INFO = 1:0:1
+VERSION_INFO = 1:1:1
 
 all:
 	mkdir -p src/c
@@ -53,6 +53,10 @@ check:
 	gmpl.cs
 	export MONO_PATH="../../swig" && \
 	cd ../examples/csharp && ./gmpl.exe marbles.mod
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	linord.cs
+	export MONO_PATH="../../swig" && \
+	cd ../examples/csharp && ./linord.exe tiw56r72.mat mincost.lp
 
 dist-hook:
 	rm -rf `find $(distdir) -name '*~'`
