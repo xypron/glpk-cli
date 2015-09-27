@@ -8,6 +8,7 @@ namespace org.gnu.glpk {
      * evaluated, or to supply a heuristic solution.
      * @see GlpkCallback
      */
+    [System.CLSCompliant(true)]
     public interface IGlpkCallbackListener {
         /**
          * Method call by the %GLPK MIP solver in the branch-and-cut algorithm.

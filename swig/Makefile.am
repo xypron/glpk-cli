@@ -67,6 +67,11 @@ check:
 	cd ../examples/vb && chmod 755 lp.exe
 	export MONO_PATH="../../swig" && \
 	cd ../examples/vb && ./lp.exe
+	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
+	gmpl.vb
+	cd ../examples/vb && chmod 755 gmpl.exe
+	export MONO_PATH="../../swig" && \
+	cd ../examples/vb && ./gmpl.exe marbles.mod
 
 dist-hook:
 	rm -rf `find $(distdir) -name '*~'`

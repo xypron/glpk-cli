@@ -1,5 +1,11 @@
 %module GLPK
 
+%include "keyword.i"
+
+%pragma(csharp) imclassclassmodifiers="
+[global::System.CLSCompliant(false)]
+public class "
+
 /* As there is no good transformation for va_list
  * we will just do nothing.
  * cf. http://swig.org/Doc3.0/SWIGDocumentation.html#Varargs_nn8

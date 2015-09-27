@@ -15,6 +15,7 @@ namespace org.gnu.glpk {
      * @see GLPK#glp_term_hook(SWIGTYPE_p_f_p_void_p_q_const__char__int,
      * SWIGTYPE_p_void)
      */
+    [System.CLSCompliant(true)]
     public interface IGlpkTerminalListener {
         /**
          * Receive terminal output.
