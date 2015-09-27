@@ -7,6 +7,8 @@ EXTRA_DIST = doc examples w64 autogen.sh \
 clean:
 	-for d in $(SUBDIRS); do (cd $$d && $(MAKE) clean ); done
 	rm -rf doc/doxygen
+	rm examples/csharp/*.exe
+	rm examples/vb/*.exe
 
 dist-hook:
 	rm -rf $(distdir)/doc/doxygen

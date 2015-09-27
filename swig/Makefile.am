@@ -1,4 +1,4 @@
-EXTRA_DIST = *.i *.cs
+EXTRA_DIST = *.h *.i *.cs
 
 # current:revision:age
 # library implements all interface numbers
@@ -25,6 +25,8 @@ clean-local:
 	rm -f -r src/csharp src/c .libs
 	rm -f *.o *.la *.lo *.dll
 	rm -rf target 
+	rm -f ../examples/csharp/mincost.lp
+	rm -f ../examples/vb/mincost.lp
 
 documentation:
 
@@ -55,8 +57,10 @@ check:
 	cd ../examples/csharp && ./gmpl.exe marbles.mod
 	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
 	linord.cs
+	cd ../examples/csharp && rm -f mincost.lp
 	export MONO_PATH="../../swig" && \
 	cd ../examples/csharp && ./linord.exe tiw56r72.mat mincost.lp
+	cd ../examples/csharp && rm mincost.lp
 	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
 	version.vb
 	cd ../examples/vb && chmod 755 version.exe
