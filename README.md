@@ -101,7 +101,7 @@ writes the GLPK version number to the console in Visual Basic.
         End Sub
     End Module
     EOF
-    vbnc -r:libglpk-cli -libpath:/usr/local/lib/glpk-cli/ version.vb
+    vbnc -r:libglpk-cli.dll -libpath:/usr/local/lib/glpk-cli/ version.vb
     chmod 755 version.exe
     ./version.exe
 
