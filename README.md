@@ -1,16 +1,10 @@
 # GLPK for C# and the Common Language Infrastructure (CLI)
 
-The GNU Linear Programming Kit (GLPK) package supplies a solver for large scale
-linear programming (LP) and mixed integer programming (MIP).
-The GLPK for C# and the Common Language Infrastructure (CLI) package provides a
-language binding that can be used with C# and other CLI supported languages
-like F#.
-
-The project homepage is http://glpk-cli.sourceforge.net.
-
 GLPK for C#/CLI provides a common language interface binding for the GLPK linear
 programming library. It allows you to use the Gnu Linear Programming Kit with all
 .NET/Mono languages (C#, F#, Python, J#, Scala, Visual Basic, ...).
+
+The project homepage is http://glpk-cli.sourceforge.net.
 
 Makefiles for Windows and Linux are provided.
 
