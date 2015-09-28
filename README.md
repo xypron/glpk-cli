@@ -124,7 +124,7 @@ from the w64 directory:
 
 1.0.2 - 2015-09-28
 
-*
+* Support for network optimization
 
 1.0.1 - 2015-09-27
 
