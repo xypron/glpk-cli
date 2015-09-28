@@ -119,7 +119,6 @@ from the w64 directory:
 ## Open issues
 
 * Incomplete documentation
-* Missing support for network optimization
 
 ## Revision history
 

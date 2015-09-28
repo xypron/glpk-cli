@@ -212,6 +212,12 @@ glp_cli_vertex_data *glp_cli_vertex_get_data(
 
 %}
 
+// Add handling for structures
+%include "glpk_cli_structures.i"
+%glp_structure(glp_arc)
+%glp_structure(glp_graph)
+%glp_structure(glp_vertex)
+
 %pragma(csharp) imclasscode=%{
     class GlpkTerminalHelper {
         public delegate int GlpkTerminalDelegate(System.IntPtr msg);
