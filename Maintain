@@ -1,0 +1,16 @@
+== Preparing a new release ==
+
+Update version information in
+
+README.md            - release information
+configure.ac         - release number
+swig/assembly.cs     - release number
+swig/Makefile.am     - library version number
+w64/glpk_cli_dll.rc  - check MySQL version number
+Doxyfile             - release number
+
+./autogen.sh
+./configure
+make clean
+make dist
+git tag -s <release number>
