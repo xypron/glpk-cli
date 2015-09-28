@@ -57,10 +57,15 @@ check:
 	cd ../examples/csharp && ./gmpl.exe marbles.mod
 	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
 	linord.cs
-	cd ../examples/csharp && rm -f mincost.lp
+	cd ../examples/csharp && rm -f tiw56r72.sol
 	export MONO_PATH="../../swig" && \
-	cd ../examples/csharp && ./linord.exe tiw56r72.mat mincost.lp
-	cd ../examples/csharp && rm mincost.lp
+	cd ../examples/csharp && ./linord.exe tiw56r72.mat tiw56r72.sol
+	cd ../examples/csharp && rm tiw56r72.sol
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	  minimumcostflow.cs
+	cd ../examples/csharp && rm -f mincost.lp mincost.dimacs && \
+	  export MONO_PATH="../../swig" && ./minimumcostflow.exe && \
+	  rm mincost.lp mincost.dimacs
 	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
 	version.vb
 	cd ../examples/vb && chmod 755 version.exe
@@ -87,4 +92,5 @@ dist-hook:
 	rm -rf `find $(distdir) -name '*.orig'`
 	rm -rf `find $(distdir) -name .svn`
 	rm -rf `find $(distdir) -name '*.bak'`
+	cd ../examples/csharp && rm -f mincost.lp mincost.dimacs tiw56r72.sol
 
