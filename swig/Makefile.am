@@ -25,8 +25,6 @@ clean-local:
 	rm -f -r src/csharp src/c .libs
 	rm -f *.o *.la *.lo *.dll
 	rm -rf target 
-	rm -f ../examples/csharp/mincost.lp
-	rm -f ../examples/vb/mincost.lp
 
 documentation:
 
@@ -66,6 +64,10 @@ check:
 	cd ../examples/csharp && rm -f mincost.lp mincost.dimacs && \
 	  export MONO_PATH="../../swig" && ./minimumcostflow.exe && \
 	  rm mincost.lp mincost.dimacs
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	relax4.cs
+	export MONO_PATH="../../swig" && \
+	cd ../examples/csharp && ./relax4.exe sample.min
 	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
 	version.vb
 	cd ../examples/vb && chmod 755 version.exe
@@ -92,5 +94,3 @@ dist-hook:
 	rm -rf `find $(distdir) -name '*.orig'`
 	rm -rf `find $(distdir) -name .svn`
 	rm -rf `find $(distdir) -name '*.bak'`
-	cd ../examples/csharp && rm -f mincost.lp mincost.dimacs tiw56r72.sol
-
