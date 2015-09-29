@@ -37,64 +37,64 @@ install:
 	$(LIBTOOL) --mode=finish $(DESTDIR)${libdir}/glpk-cli
 
 check:
-	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig-cli/ \
 	version.cs
-	export MONO_PATH="../../swig" && \
+	export MONO_PATH="../../swig-cli" && \
 	cd ../examples/csharp && ./version.exe
-	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig-cli/ \
 	lp.cs
-	export MONO_PATH="../../swig" && \
+	export MONO_PATH="../../swig-cli" && \
 	cd ../examples/csharp && ./lp.exe
-	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig-cli/ \
 	errordemo.cs
-	export MONO_PATH="../../swig" && \
+	export MONO_PATH="../../swig-cli" && \
 	cd ../examples/csharp && ./errordemo.exe
-	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig-cli/ \
 	gmpl.cs
-	export MONO_PATH="../../swig" && \
+	export MONO_PATH="../../swig-cli" && \
 	cd ../examples/csharp && ./gmpl.exe marbles.mod
-	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig-cli/ \
 	linord.cs
 	cd ../examples/csharp && rm -f tiw56r72.sol
-	export MONO_PATH="../../swig" && \
+	export MONO_PATH="../../swig-cli" && \
 	cd ../examples/csharp && ./linord.exe tiw56r72.mat tiw56r72.sol
 	cd ../examples/csharp && rm tiw56r72.sol
-	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig-cli/ \
 	  minimumcostflow.cs
 	cd ../examples/csharp && rm -f mincost.lp mincost.dimacs && \
-	  export MONO_PATH="../../swig" && ./minimumcostflow.exe && \
+	  export MONO_PATH="../../swig-cli" && ./minimumcostflow.exe && \
 	  rm mincost.lp mincost.dimacs
-	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig/ \
+	cd ../examples/csharp && mcs -r:libglpk-cli -lib:../../swig-cli/ \
 	relax4.cs
-	export MONO_PATH="../../swig" && \
+	export MONO_PATH="../../swig-cli" && \
 	cd ../examples/csharp && ./relax4.exe sample.min
 
 check-fsharp:
-	cd ../examples/fsharp && fsharpc -r:libglpk-cli.dll --lib:../../swig/ \
-	version.fs
-	export MONO_PATH="../../swig" && \
+	cd ../examples/fsharp && fsharpc -r:libglpk-cli.dll \
+	--lib:../../swig-cli/ version.fs
+	export MONO_PATH="../../swig-cli" && \
 	cd ../examples/fsharp && ./version.exe
 
 check-vb:
-	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
+	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig-cli/ \
 	version.vb
 	cd ../examples/vb && chmod 755 version.exe
-	export MONO_PATH="../../swig" && \
+	export MONO_PATH="../../swig-cli" && \
 	cd ../examples/vb && ./version.exe
-	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
+	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig-cli/ \
 	lp.vb
 	cd ../examples/vb && chmod 755 lp.exe
-	export MONO_PATH="../../swig" && \
+	export MONO_PATH="../../swig-cli" && \
 	cd ../examples/vb && ./lp.exe
-	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
+	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig-cli/ \
 	errordemo.vb
 	cd ../examples/vb && chmod 755 errordemo.exe
-	export MONO_PATH="../../swig" && \
+	export MONO_PATH="../../swig-cli" && \
 	cd ../examples/vb && ./errordemo.exe
-	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
+	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig-cli/ \
 	gmpl.vb
 	cd ../examples/vb && chmod 755 gmpl.exe
-	export MONO_PATH="../../swig" && \
+	export MONO_PATH="../../swig-cli" && \
 	cd ../examples/vb && ./gmpl.exe marbles.mod
 
 dist-hook:

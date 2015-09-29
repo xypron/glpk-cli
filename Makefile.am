@@ -1,5 +1,5 @@
 ACLOCAL_AMFLAGS = -I m4
-SUBDIRS = swig
+SUBDIRS = swig-cli
 
 EXTRA_DIST = doc examples w64 autogen.sh \
         doxyheader.html Doxyfile
@@ -12,7 +12,7 @@ check-vb:
 
 clean:
 	-for d in $(SUBDIRS); do (cd $$d && $(MAKE) clean ); done
-	rm -rf doc/doxygen
+	rm -rf doc/cli/doxygen
 	rm -f examples/csharp/*.exe
 	rm -f examples/fsharp/*.exe
 	rm -f  examples/vb/*.exe
@@ -22,12 +22,12 @@ clean:
 	  examples/vb/tiw56r72.sol
 
 dist-hook:
-	rm -rf $(distdir)/doc/doxygen
+	rm -rf $(distdir)/doc/cli/doxygen
 	rm -rf `find $(distdir) -name '*~'`
 	rm -rf `find $(distdir) -name .svn`
 	rm -rf `find $(distdir) -name '*.bak'`
 
 install-data-local:
 	mkdir -p $(DESTDIR)$(docdir)/examples/
-	cp -rf $(srcdir)/doc/* $(DESTDIR)$(docdir)
+	cp -rf $(srcdir)/doc/cli/* $(DESTDIR)$(docdir)
 	cp -rf $(srcdir)/examples/* $(DESTDIR)$(docdir)/examples/
