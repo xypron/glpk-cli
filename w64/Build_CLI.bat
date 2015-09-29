@@ -15,14 +15,14 @@ rem Path to .NET Framework
 set NET="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\"
 
 set PATH=%NET%;%PATH%
-cd ..\swig
+cd ..\swig-cli
 mkdir src\csharp
 mkdir src\c
 copy *.cs src\csharp
 %SWIG%\swig.exe -I..\src -csharp -dllimport libglpk_cli_native -namespace org.gnu.glpk -o src/c/glpk_wrap.c -outdir src/csharp glpk.i
 cd "%~dp0"
 del libglpk-cli.dll
-csc.exe -target:library -out:libglpk-cli.dll ..\swig\src\csharp\*.cs
+csc.exe -target:library -out:libglpk-cli.dll ..\swig-cli\src\csharp\*.cs
 set INCLUDE=
 set LIB=
 call %HOME%\VC\vcvarsall.bat x64
