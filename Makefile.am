@@ -4,10 +4,17 @@ SUBDIRS = swig
 EXTRA_DIST = doc examples w64 autogen.sh \
         doxyheader.html Doxyfile
 
+check-fsharp:
+	-for d in $(SUBDIRS); do (cd $$d && $(MAKE) check-fsharp ); done
+
+check-vb:
+	-for d in $(SUBDIRS); do (cd $$d && $(MAKE) check-vb ); done
+
 clean:
 	-for d in $(SUBDIRS); do (cd $$d && $(MAKE) clean ); done
 	rm -rf doc/doxygen
 	rm -f examples/csharp/*.exe
+	rm -f examples/fsharp/*.exe
 	rm -f  examples/vb/*.exe
 	rm -f examples/csharp/mincost.lp examples/csharp/mincost.dimacs \
 	  examples/csharp/tiw56r72.sol

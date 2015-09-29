@@ -68,6 +68,14 @@ check:
 	relax4.cs
 	export MONO_PATH="../../swig" && \
 	cd ../examples/csharp && ./relax4.exe sample.min
+
+check-fsharp:
+	cd ../examples/fsharp && fsharpc -r:libglpk-cli.dll --lib:../../swig/ \
+	version.fs
+	export MONO_PATH="../../swig" && \
+	cd ../examples/fsharp && ./version.exe
+
+check-vb:
 	cd ../examples/vb && vbnc -r:libglpk-cli.dll -libpath:../../swig/ \
 	version.vb
 	cd ../examples/vb && chmod 755 version.exe
