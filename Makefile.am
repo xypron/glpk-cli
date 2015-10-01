@@ -1,5 +1,5 @@
 ACLOCAL_AMFLAGS = -I m4
-SUBDIRS = swig-cli
+SUBDIRS = doc swig-cli
 
 EXTRA_DIST = doc examples w64 autogen.sh \
         doxyheader.html Doxyfile
@@ -26,6 +26,9 @@ dist-hook:
 	rm -rf `find $(distdir) -name '*~'`
 	rm -rf `find $(distdir) -name .svn`
 	rm -rf `find $(distdir) -name '*.bak'`
+
+documentation:
+	-for d in $(SUBDIRS); do (cd $$d && $(MAKE) documentation ); done
 
 install-data-local:
 	mkdir -p $(DESTDIR)$(docdir)/examples/

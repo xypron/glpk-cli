@@ -41,6 +41,7 @@ AC_CHECK_HEADER([glpk.h],
 dnl Makefiles
 AC_CONFIG_FILES([
   Makefile
+  doc/Makefile
   swig-cli/Makefile
   ])
 
