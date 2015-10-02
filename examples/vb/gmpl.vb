@@ -53,7 +53,8 @@ Public Class clsGmpl
 			If ret <> 0 Then
 				GLPK.glp_mpl_free_wksp (tran)
 				GLPK.glp_delete_prob (lp)
-				throw new ApplicationException ("Model file not valid: " + fname)
+				throw new ApplicationException ( _
+					"Model file not valid: " + fname)
 			End If
 
 			' generate model
@@ -61,7 +62,8 @@ Public Class clsGmpl
 			If ret <> 0 Then
 				GLPK.glp_mpl_free_wksp (tran)
 				GLPK.glp_delete_prob (lp)
-				throw new ApplicationException ("Cannot generate model: " + fname)
+				throw new ApplicationException ( _
+					"Cannot generate model: " + fname)
 			End If
 
 			' build model
@@ -88,9 +90,12 @@ Public Class clsGmpl
 			GLPK.glp_delete_prob (lp)
 
 		Catch e As org.gnu.glpk.GlpkException
-			Console.Error.WriteLine ("An error inside the GLPK library occured.")
+			Console.Error.WriteLine ( _
+				"An error inside the GLPK library occured.")
 			Console.Error.WriteLine (e.Message)
 		Catch e As ApplicationException
+			Console.Error.WriteLine ( _
+				"Applicaiton Exception")
 			Console.Error.WriteLine (e.Message)
 		End Try
 
@@ -99,7 +104,7 @@ Public Class clsGmpl
 
 		' check that the terinal hook function has been used
 		If Not hookUsed Then
-			throw new ApplicationException (
+			throw new ApplicationException ( _
 				"The terminal output hook was not used.")
 		End If
 	End Sub
