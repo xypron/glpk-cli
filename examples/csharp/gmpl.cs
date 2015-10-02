@@ -72,8 +72,7 @@ public class Gmpl : IGlpkCallbackListener, IGlpkTerminalListener
 
 			// postsolve model
 			if (ret == 0) {
-				GLPK.glp_mpl_postsolve (tran, lp,
-				                                   GLPK.GLP_MIP);
+				GLPK.glp_mpl_postsolve (tran, lp, GLPK.GLP_MIP);
 			}
 
 			// free memory
