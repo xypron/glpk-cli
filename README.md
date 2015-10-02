@@ -118,12 +118,17 @@ from the w64 directory:
 
 ## Open issues
 
-* Incomplete documentation
+* When a GMPL file is processed using Visual Basic the printf and display
+  statements do not produce output.
+  As a workaround on Linux you can output to /dev/stdout.
+
+    printf 'foo' >> /dev/stdout;
 
 ## Revision history
 
-1.0.2 - 2015-09-29
+1.0.2 - 2015-10-03
 
+* Change Makefiles for GLPK 4.56
 * Support for network optimization
 * F# example
 
