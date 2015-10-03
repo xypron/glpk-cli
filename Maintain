@@ -6,7 +6,8 @@ README.md            - release information
 configure.ac         - release number
 swig/assembly.cs     - release number
 swig/Makefile.am     - library version number
-w64/glpk_cli_dll.rc  - check MySQL version number
+w32/glpk_cli_dll.rc  - GLPK version and release number
+w64/glpk_cli_dll.rc  - GLPK version and release number
 Doxyfile             - release number
 
 ./autogen.sh
