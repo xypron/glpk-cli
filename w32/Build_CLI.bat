@@ -6,9 +6,11 @@ rem HOME, SWIG, SDK, NET.
 rem Path to GLPK source (glpk.h will be in $(GLPK_HOME)/src)
 set GLPK_HOME=".."
 rem Path to Visual Studio Express
-set HOME="C:\Program Files\Microsoft Visual Studio 14.0"
+if exist "C:\Program Files\Microsoft Visual Studio 14.0" set HOME="C:\Program Files\Microsoft Visual Studio 14.0"
+if exist "C:\Program Files (x86)\Microsoft Visual Studio 14.0" set HOME="C:\Program Files (x86)\Microsoft Visual Studio 14.0"
 rem Path to SwigWin
-set SWIG="C:\Program Files\swig\swigwin-3.0.5"
+if exist "C:\Program Files\swig\swigwin-3.0.5" set SWIG="C:\Program Files\swig\swigwin-3.0.5"
+if exist "C:\Program Files (x86)\swig\swigwin-3.0.5" set SWIG="C:\Program Files (x86)\swig\swigwin-3.0.5"
 rem Path to Windows SDK
 set SDK="C:\Program Files\Microsoft SDKs\Windows\v7.1"
 rem Path to .NET Framework
