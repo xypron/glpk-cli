@@ -310,11 +310,18 @@ Possible paths include:
 \item C:\textbackslash Windows\textbackslash Microsoft.NET\textbackslash Framework64\textbackslash v2.0.50727\textbackslash 
 \end{itemize}
 
-Compile the class
+Compile the application:
 
 \lstset{language=bash,escapeinside={~}{.}}
 \begin{lstlisting}
 csc.exe /r:libglpk-cli.dll test.cs
+\end{lstlisting}
+
+To compile a 32 bit application on 64 bit Windows use:
+
+\lstset{language=bash,escapeinside={~}{.}}
+\begin{lstlisting}
+csc.exe /platform:x86 /r:libglpk-cli.dll test.cs
 \end{lstlisting}
 
 For running the application both the GLPK library
