@@ -1,7 +1,7 @@
 ACLOCAL_AMFLAGS = -I m4
 SUBDIRS = doc swig-cli
 
-EXTRA_DIST = doc examples w64 autogen.sh \
+EXTRA_DIST = doc examples w32 w64 autogen.sh \
         doxyheader.html Doxyfile
 
 check-fsharp:
