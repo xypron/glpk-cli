@@ -33,10 +33,13 @@ glp_cli_vertex_data *glp_cli_vertex_get_data( const glp_vertex *v);
 glp_vertex *glp_cli_vertex_get( const glp_graph *G, const int i );
 
 struct glp_prob {
+    int hidden_internal;
 };
 struct glp_tran {
+    int hidden_internal;
 };
 struct glp_tree {
+    int hidden_internal;
 };
 
 #endif // GLPK_CLI_H

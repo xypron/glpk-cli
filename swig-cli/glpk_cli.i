@@ -89,4 +89,33 @@ public";
  */
 public";
 
+%csattributes hidden_internal "
+/**
+ * Hides internal structure.
+ *
+ * The internal fields of this structure cannot be accessed
+ * directly. Use the library methods.
+ */"
+%typemap(csvarout, excode=SWIGEXCODE) (int hidden_internal) %{
+  /**
+   * Always returns zero.
+   *
+   * @return 0
+   */
+  get {
+    $excode
+    return 0;
+  }
+%}
+%typemap(csvarin, excode=SWIGEXCODE) (int hidden_internal) %{
+  /**
+   * Does nothing.
+   */
+  set {
+    $excode
+    return;
+  }
+%}
+
+
 %include "glpk_cli.h"
