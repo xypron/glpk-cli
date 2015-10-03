@@ -297,11 +297,34 @@ class Program
 
 \subsection{Windows}
 
+Copy the GLPK for C\#/CLI assembly (libglpk-cli.dll) to the directory with file
+test.cs.
+
+For compiling you need the C\# compiler.
+The location of csc.exe depends on the version of the .NET framework used.
+Possible paths include:
+
+\begin{itemize}
+\item C:\textbackslash Windows\textbackslash Microsoft.NET\textbackslash Framework64\textbackslash v4.0.30319\textbackslash 
+\item C:\textbackslash Windows\textbackslash Microsoft.NET\textbackslash Framework64\textbackslash v3.5\textbackslash 
+\item C:\textbackslash Windows\textbackslash Microsoft.NET\textbackslash Framework64\textbackslash v2.0.50727\textbackslash 
+\end{itemize}
+
 Compile the class
 
 \lstset{language=bash,escapeinside={~}{.}}
 \begin{lstlisting}
-csc /r:lib_glpk_cli.dll test.cs
+csc.exe /r:libglpk-cli.dll test.cs
+\end{lstlisting}
+
+For running the application both the GLPK library
+(glpk\_\glpkVersionMajor\_\glpkVersionMinor.dll) and the GLPK for C\#/CLI
+native library (libglpk\_cli\_native.dll) have to be in the search path.
+Set the environment variable PATH accordingly.
+
+\lstset{language=bash,escapeinside={~}{.}}
+\begin{lstlisting}
+SET PATH=%PATH%;C:\Program Files\glpk\glpk-~\glpkVersionMajor..~\glpkVersionMinor.\w64
 \end{lstlisting}
 
 Run the application
