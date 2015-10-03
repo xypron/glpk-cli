@@ -4,13 +4,21 @@ using System.Collections.Generic;
 namespace org.gnu.glpk {
 
     /**
-     * This class manages callbacks from the MIP solver.
-     * <p>The GLPK MIP solver calls method {@link #callback(IntPtr) callback} in
-     * the branch-and-cut algorithm. A listener to the callback can be used to
-     * influence the sequence in which nodes of the search tree are evaluated,
-     * or to supply a heuristic solution. To find out why the callback is
-     * issued use method {@link GLPK#glp_ios_reason(glp_tree)
-     * GLPK.glp_ios_reason}.
+     * This class manages terminal output.
+     * <p>An object can be registered as listener for terminal output using
+     * the {@link #addListener(IGlpkTerminalListener) addListener} method.
+     * <p>GLPK will call method {@link #callback(string) callback} before producing
+     * terminal output. The listeners can inhibit the terminal output by returning
+     * <code>false</code> in the {@link IGlpkTerminalListener#output(string) output}
+     * routine.
+     * <p>If a {@link GlpkException GlpkExeption} has occured it is necessary to
+     * call <pre>
+     * GLPK.glp_term_hook(null, null);</pre>
+     * to reenable listening to terminal output.
+     * @see IGlpkTerminalListener
+     * @see GlpkException
+     * @see GLPK#glp_term_hook(SWIGTYPE_p_f_p_void_p_q_const__char__int,
+     * SWIGTYPE_p_void)
      */
     public class GlpkTerminal {
 
