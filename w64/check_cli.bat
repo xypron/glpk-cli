@@ -26,7 +26,7 @@ echo -
 echo Test is passed if INTEGER OPTIMAL SOLUTION FOUND
 pause
 csc.exe /r:libglpk-cli.dll ..\examples\csharp\linord.cs
-linord.exe tiw56r72.mat tiw56r72.sol
+linord.exe ..\examples\csharp\tiw56r72.mat ..\examples\csharp\tiw56r72.sol
 echo -
 echo Test is passed if INTEGER OPTIMAL SOLUTION FOUND and
 echo file tiw56r72.sol has been written.
@@ -37,7 +37,7 @@ echo -
 echo Test is passed if files mincost.lp and mincost.dimacs have been written.
 pause
 csc.exe /r:libglpk-cli.dll ..\examples\csharp\relax4.cs
-relax4.exe
+relax4.exe ..\examples\csharp\sample.min
 echo -
 echo Test is passed if ret = 0.
 pause
