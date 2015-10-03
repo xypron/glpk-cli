@@ -33,7 +33,7 @@ echo file tiw56r72.sol has been written.
 pause
 csc.exe /r:libglpk-cli.dll ..\examples\csharp\minimumcostflow.cs
 minimumcostflow.exe
-rm mincost.lp mincost.dimacs
+del mincost.lp mincost.dimacs
 echo -
 echo Test is passed if files mincost.lp and mincost.dimacs have been written.
 pause
