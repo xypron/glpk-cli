@@ -25,3 +25,19 @@ gmpl.exe ..\examples\csharp\marbles.mod
 echo -
 echo Test is passed if INTEGER OPTIMAL SOLUTION FOUND
 pause
+csc.exe /r:libglpk-cli.dll ..\examples\csharp\linord.cs
+linord.exe tiw56r72.mat tiw56r72.sol
+echo -
+echo Test is passed if INTEGER OPTIMAL SOLUTION FOUND and
+echo file tiw56r72.sol has been written.
+pause
+csc.exe /r:libglpk-cli.dll ..\examples\csharp\mincostflow.cs
+mincostflow.exe
+echo -
+echo Test is passed if files mincost.lp and mincost.dimacs have been written.
+pause
+csc.exe /r:libglpk-cli.dll ..\examples\csharp\relax4.cs
+relax4.exe
+echo -
+echo Test is passed if ret = 0.
+pause
