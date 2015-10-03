@@ -31,4 +31,3 @@ install:
 	install -m 644 glpk-cli.pdf $(DESTDIR)${docdir}/glpk-cli.pdf
 
 check:
-	if test ! -f glpk-cli.pdf;then echo glpk-cli.pdf not found;exit 1; fi
