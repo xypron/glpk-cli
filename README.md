@@ -129,6 +129,7 @@ from the w64 directory:
 1.0.2 - 2015-10-03
 
 * Change Makefiles for GLPK 4.56
+* Windows 32 bit makefiles
 * Support for network optimization
 * F# example
 
