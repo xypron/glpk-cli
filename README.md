@@ -126,6 +126,11 @@ from the w64 directory:
 
 ## Revision history
 
+1.1.0 - 2015-11-08
+
+* Change Makefiles for GLPK 4.57
+* Use Swig 3.0.7
+
 1.0.2 - 2015-10-03
 
 * Change Makefiles for GLPK 4.56
