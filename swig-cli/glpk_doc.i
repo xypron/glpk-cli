@@ -11,8 +11,8 @@ public";
  * <p>#include \"bignum.h\" void bigmul(int n, int m, unsigned short x[], unsigned short y[]);</p>
  * <p>DESCRIPTION</p>
  * <p>The routine bigmul multiplies unsigned integer numbers of arbitrary precision.</p>
- * <p>n is the number of digits of multiplicand, n >= 1;</p>
- * <p>m is the number of digits of multiplier, m >= 1;</p>
+ * <p>n is the number of digits of multiplicand, n &gt;= 1;</p>
+ * <p>m is the number of digits of multiplier, m &gt;= 1;</p>
  * <p>x is an array containing digits of the multiplicand in elements x[m], x[m+1], ..., x[n+m-1]. Contents of x[0], x[1], ..., x[m-1] are ignored on entry.</p>
  * <p>y is an array containing digits of the multiplier in elements y[0], y[1], ..., y[m-1].</p>
  * <p>On exit digits of the product are stored in elements x[0], x[1], ..., x[n+m-1]. The array y is not changed. </p>
@@ -26,8 +26,8 @@ public";
  * <p>#include \"bignum.h\" void bigdiv(int n, int m, unsigned short x[], unsigned short y[]);</p>
  * <p>DESCRIPTION</p>
  * <p>The routine bigdiv divides one unsigned integer number of arbitrary precision by another with the algorithm described in [1].</p>
- * <p>n is the difference between the number of digits of dividend and the number of digits of divisor, n >= 0.</p>
- * <p>m is the number of digits of divisor, m >= 1.</p>
+ * <p>n is the difference between the number of digits of dividend and the number of digits of divisor, n &gt;= 0.</p>
+ * <p>m is the number of digits of divisor, m &gt;= 1.</p>
  * <p>x is an array containing digits of the dividend in elements x[0], x[1], ..., x[n+m-1].</p>
  * <p>y is an array containing digits of the divisor in elements y[0], y[1], ..., y[m-1]. The highest digit y[m-1] must be non-zero.</p>
  * <p>On exit n+1 digits of the quotient are stored in elements x[m], x[m+1], ..., x[n+m], and m digits of the remainder are stored in elements x[0], x[1], ..., x[m-1]. The array y is changed but then restored.</p>
@@ -436,8 +436,8 @@ public";
  * <p>int glp_check_dup(int m, int n, int ne, const int ia[], const int ja[]);</p>
  * <p>DESCRIPTION</p>
  * <p>The routine glp_check_dup checks for duplicate elements (that is, elements with identical indices) in a sparse matrix specified in the coordinate format.</p>
- * <p>The parameters m and n specifies, respectively, the number of rows and columns in the matrix, m >= 0, n >= 0.</p>
- * <p>The parameter ne specifies the number of (structurally) non-zero elements in the matrix, ne >= 0.</p>
+ * <p>The parameters m and n specifies, respectively, the number of rows and columns in the matrix, m &gt;= 0, n &gt;= 0.</p>
+ * <p>The parameter ne specifies the number of (structurally) non-zero elements in the matrix, ne &gt;= 0.</p>
  * <p>Elements of the matrix are specified as doublets (ia[k],ja[k]) for k = 1,...,ne, where ia[k] is a row index, ja[k] is a column index.</p>
  * <p>The routine glp_check_dup can be used prior to a call to the routine glp_load_matrix to check that the constraint matrix to be loaded has no duplicate elements.</p>
  * <p>RETURNS</p>
@@ -464,7 +464,7 @@ public";
  * <p>SYNOPSIS</p>
  * <p>void glp_del_rows(glp_prob *lp, int nrs, const int num[]);</p>
  * <p>DESCRIPTION</p>
- * <p>The routine glp_del_rows deletes rows from the specified problem object. Ordinal numbers of rows to be deleted should be placed in locations num[1], ..., num[nrs], where nrs > 0.</p>
+ * <p>The routine glp_del_rows deletes rows from the specified problem object. Ordinal numbers of rows to be deleted should be placed in locations num[1], ..., num[nrs], where nrs &gt; 0.</p>
  * <p>Note that deleting rows involves changing ordinal numbers of other rows remaining in the problem object. New ordinal numbers of the remaining rows are assigned under the assumption that the original order of rows is not changed. </p>
  */
 public";
@@ -475,7 +475,7 @@ public";
  * <p>SYNOPSIS</p>
  * <p>void glp_del_cols(glp_prob *lp, int ncs, const int num[]);</p>
  * <p>DESCRIPTION</p>
- * <p>The routine glp_del_cols deletes columns from the specified problem object. Ordinal numbers of columns to be deleted should be placed in locations num[1], ..., num[ncs], where ncs > 0.</p>
+ * <p>The routine glp_del_cols deletes columns from the specified problem object. Ordinal numbers of columns to be deleted should be placed in locations num[1], ..., num[ncs], where ncs &gt; 0.</p>
  * <p>Note that deleting columns involves changing ordinal numbers of other columns remaining in the problem object. New ordinal numbers of the remaining columns are assigned under the assumption that the original order of columns is not changed. </p>
  */
 public";
@@ -1097,7 +1097,7 @@ public";
  * <p>SYNOPSIS</p>
  * <p>void glp_del_vertices(glp_graph *G, int ndel, const int num[]);</p>
  * <p>DESCRIPTION</p>
- * <p>The routine glp_del_vertices deletes vertices along with all incident arcs from the specified graph. Ordinal numbers of vertices to be deleted should be placed in locations num[1], ..., num[ndel], ndel > 0.</p>
+ * <p>The routine glp_del_vertices deletes vertices along with all incident arcs from the specified graph. Ordinal numbers of vertices to be deleted should be placed in locations num[1], ..., num[ndel], ndel &gt; 0.</p>
  * <p>Note that deleting vertices involves changing ordinal numbers of other vertices remaining in the graph. New ordinal numbers of the remaining vertices are assigned under the assumption that the original order of vertices is not changed. </p>
  */
 public";
@@ -1260,7 +1260,7 @@ public";
  * <p>SYNOPSIS</p>
  * <p>#include \"misc.h\" int fp2rat(double x, double eps, double *p, double *q);</p>
  * <p>DESCRIPTION</p>
- * <p>Given a floating-point number 0 &lt;= x &lt; 1 the routine fp2rat finds its \"best\" rational approximation p / q, where p >= 0 and q > 0 are integer numbers, such that |x - p / q| &lt;= eps.</p>
+ * <p>Given a floating-point number 0 &lt;= x &lt; 1 the routine fp2rat finds its \"best\" rational approximation p / q, where p &gt;= 0 and q &gt; 0 are integer numbers, such that |x - p / q| &lt;= eps.</p>
  * <p>RETURNS</p>
  * <p>The routine fp2rat returns the number of iterations used to achieve the specified precision eps.</p>
  * <p>EXAMPLES</p>
@@ -1674,7 +1674,7 @@ public";
  * <p>DESCRIPTION</p>
  * <p>The routine spm_test_mat_e creates a test sparse matrix of E(n,c) class as described in the book: Ole 0sterby, Zahari Zlatev. Direct Methods for Sparse Matrices. Springer-Verlag, 1983.</p>
  * <p>Matrix of E(n,c) class is a symmetric positive definite matrix of the order n. It has the number 4 on its main diagonal and the number -1 on its four co-diagonals, two of which are neighbour to the main diagonal and two others are shifted from the main diagonal on the distance c.</p>
- * <p>It is necessary that n >= 3 and 2 &lt;= c &lt;= n-1.</p>
+ * <p>It is necessary that n &gt;= 3 and 2 &lt;= c &lt;= n-1.</p>
  * <p>RETURNS</p>
  * <p>The routine returns a pointer to the matrix created. </p>
  */
@@ -1688,7 +1688,7 @@ public";
  * <p>DESCRIPTION</p>
  * <p>The routine spm_test_mat_d creates a test sparse matrix of D(n,c) class as described in the book: Ole 0sterby, Zahari Zlatev. Direct Methods for Sparse Matrices. Springer-Verlag, 1983.</p>
  * <p>Matrix of D(n,c) class is a non-singular matrix of the order n. It has unity main diagonal, three co-diagonals above the main diagonal on the distance c, which are cyclically continued below the main diagonal, and a triangle block of the size 10x10 in the upper right corner.</p>
- * <p>It is necessary that n >= 14 and 1 &lt;= c &lt;= n-13.</p>
+ * <p>It is necessary that n &gt;= 14 and 1 &lt;= c &lt;= n-13.</p>
  * <p>RETURNS</p>
  * <p>The routine returns a pointer to the matrix created. </p>
  */
@@ -4093,19 +4093,19 @@ public";
  * <p>Current column bounds (2) define implied lower and upper bounds of row (1) as follows:</p>
  * <p>L'[p] = inf sum a[p,j] x[j] = j (3) = sum a[p,j] l[j] + sum a[p,j] u[j], j in Jp j in Jn</p>
  * <p>U'[p] = sup sum a[p,j] x[j] = (4) = sum a[p,j] u[j] + sum a[p,j] l[j], j in Jp j in Jn</p>
- * <p>Jp = {j: a[p,j] > 0}, Jn = {j: a[p,j] &lt; 0}. (5)</p>
+ * <p>Jp = {j: a[p,j] &gt; 0}, Jn = {j: a[p,j] &lt; 0}. (5)</p>
  * <p>(Note that bounds of all columns in row p are assumed to be correct, so L'[p] &lt;= U'[p].)</p>
- * <p>If L[p] > L'[p] and/or U[p] &lt; U'[p], the lower and/or upper bound of row (1) can be active, in which case such row defines implied bounds of its variables.</p>
- * <p>Let x[k] be some variable having in row (1) coefficient a[p,k] != 0. Consider a case when row lower bound can be active (L[p] > L'[p]):</p>
- * <p>sum a[p,j] x[j] >= L[p] ==> j</p>
- * <p>sum a[p,j] x[j] + a[p,k] x[k] >= L[p] ==> j!=k (6) a[p,k] x[k] >= L[p] - sum a[p,j] x[j] ==> j!=k</p>
- * <p>a[p,k] x[k] >= L[p,k],</p>
+ * <p>If L[p] &gt; L'[p] and/or U[p] &lt; U'[p], the lower and/or upper bound of row (1) can be active, in which case such row defines implied bounds of its variables.</p>
+ * <p>Let x[k] be some variable having in row (1) coefficient a[p,k] != 0. Consider a case when row lower bound can be active (L[p] &gt; L'[p]):</p>
+ * <p>sum a[p,j] x[j] &gt;= L[p] ==> j</p>
+ * <p>sum a[p,j] x[j] + a[p,k] x[k] &gt;= L[p] ==> j!=k (6) a[p,k] x[k] &gt;= L[p] - sum a[p,j] x[j] ==> j!=k</p>
+ * <p>a[p,k] x[k] &gt;= L[p,k],</p>
  * <p>where</p>
  * <p>L[p,k] = inf(L[p] - sum a[p,j] x[j]) = j!=k</p>
  * <p>= L[p] - sup sum a[p,j] x[j] = (7) j!=k</p>
  * <p>= L[p] - sum a[p,j] u[j] - sum a[p,j] l[j]. j in Jpk} j in Jnk}</p>
  * <p>Thus:</p>
- * <p>x[k] >= l'[k] = L[p,k] / a[p,k], if a[p,k] > 0, (8)</p>
+ * <p>x[k] &gt;= l'[k] = L[p,k] / a[p,k], if a[p,k] &gt; 0, (8)</p>
  * <p>x[k] &lt;= u'[k] = L[p,k] / a[p,k], if a[p,k] &lt; 0. (9)</p>
  * <p>where l'[k] and u'[k] are implied lower and upper bounds of variable x[k], resp.</p>
  * <p>Now consider a similar case when row upper bound can be active (U[p] &lt; U'[p]):</p>
@@ -4117,15 +4117,15 @@ public";
  * <p>= U[p] - inf sum a[p,j] x[j] = (11) j!=k</p>
  * <p>= U[p] - sum a[p,j] l[j] - sum a[p,j] u[j]. j in Jpk} j in Jnk}</p>
  * <p>Thus:</p>
- * <p>x[k] &lt;= u'[k] = U[p,k] / a[p,k], if a[p,k] > 0, (12)</p>
- * <p>x[k] >= l'[k] = U[p,k] / a[p,k], if a[p,k] &lt; 0. (13)</p>
+ * <p>x[k] &lt;= u'[k] = U[p,k] / a[p,k], if a[p,k] &gt; 0, (12)</p>
+ * <p>x[k] &gt;= l'[k] = U[p,k] / a[p,k], if a[p,k] &lt; 0. (13)</p>
  * <p>Note that in formulae (8), (9), (12), and (13) coefficient a[p,k] must not be too small in magnitude relatively to other non-zero coefficients in row (1), i.e. the following condition must hold:</p>
- * <p>|a[p,k]| >= eps * max(1, |a[p,j]|), (14) j</p>
+ * <p>|a[p,k]| &gt;= eps * max(1, |a[p,j]|), (14) j</p>
  * <p>where eps is a relative tolerance for constraint coefficients. Otherwise the implied column bounds can be numerical inreliable. For example, using formula (8) for the following inequality constraint:</p>
- * <p>1e-12 x1 - x2 - x3 >= 0,</p>
- * <p>where x1 >= -1, x2, x3, >= 0, may lead to numerically unreliable conclusion that x1 >= 0.</p>
+ * <p>1e-12 x1 - x2 - x3 &gt;= 0,</p>
+ * <p>where x1 &gt;= -1, x2, x3, &gt;= 0, may lead to numerically unreliable conclusion that x1 &gt;= 0.</p>
  * <p>Using formulae (8), (9), (12), and (13) to compute implied bounds for one variable requires |J| operations, where J = {j: a[p,j] != 0}, because this needs computing L[p,k] and U[p,k]. Thus, computing implied bounds for all variables in row (1) would require |J|^2 operations, that is not a good technique. However, the total number of operations can be reduced to |J| as follows.</p>
- * <p>Let a[p,k] > 0. Then from (7) and (11) we have:</p>
+ * <p>Let a[p,k] &gt; 0. Then from (7) and (11) we have:</p>
  * <p>L[p,k] = L[p] - (U'[p] - a[p,k] u[k]) =    = L[p] - U'[p] + a[p,k] u[k],
 </p>
  * <p>U[p,k] = U[p] - (L'[p] - a[p,k] l[k]) =    = U[p] - L'[p] + a[p,k] l[k],
@@ -4141,19 +4141,19 @@ public";
  * <p>and substituting these expressions into (8) and (12) gives:</p>
  * <p>l'[k] = U[p,k] / a[p,k] = u[k] + (U[p] - L'[p]) / a[p,k], (17)</p>
  * <p>u'[k] = L[p,k] / a[p,k] = l[k] + (L[p] - U'[p]) / a[p,k]. (18)</p>
- * <p>Note that formulae (15)-(18) can be used only if L'[p] and U'[p] exist. However, if for some variable x[j] it happens that l[j] = -oo and/or u[j] = +oo, values of L'[p] (if a[p,j] > 0) and/or U'[p] (if a[p,j] &lt; 0) are undefined. Consider, therefore, the most general situation, when some column bounds (2) may not exist.</p>
+ * <p>Note that formulae (15)-(18) can be used only if L'[p] and U'[p] exist. However, if for some variable x[j] it happens that l[j] = -oo and/or u[j] = +oo, values of L'[p] (if a[p,j] &gt; 0) and/or U'[p] (if a[p,j] &lt; 0) are undefined. Consider, therefore, the most general situation, when some column bounds (2) may not exist.</p>
  * <p>Let:</p>
- * <p>J' = {j : (a[p,j] > 0 and l[j] = -oo) or (19) (a[p,j] &lt; 0 and u[j] = +oo)}.</p>
+ * <p>J' = {j : (a[p,j] &gt; 0 and l[j] = -oo) or (19) (a[p,j] &lt; 0 and u[j] = +oo)}.</p>
  * <p>Then (assuming that row upper bound U[p] can be active) the following three cases are possible:</p>
  * <p>1) |J'| = 0. In this case L'[p] exists, thus, for all variables x[j] in row (1) we can use formulae (16) and (17);</p>
- * <p>2) J' = {k}. In this case L'[p] = -oo, however, U[p,k] (11) exists, so for variable x[k] we can use formulae (12) and (13). Note that for all other variables x[j] (j != k) l'[j] = -oo (if a[p,j] &lt; 0) or u'[j] = +oo (if a[p,j] > 0);</p>
- * <p>3) |J'| > 1. In this case for all variables x[j] in row [1] we have l'[j] = -oo (if a[p,j] &lt; 0) or u'[j] = +oo (if a[p,j] > 0).</p>
+ * <p>2) J' = {k}. In this case L'[p] = -oo, however, U[p,k] (11) exists, so for variable x[k] we can use formulae (12) and (13). Note that for all other variables x[j] (j != k) l'[j] = -oo (if a[p,j] &lt; 0) or u'[j] = +oo (if a[p,j] &gt; 0);</p>
+ * <p>3) |J'| &gt; 1. In this case for all variables x[j] in row [1] we have l'[j] = -oo (if a[p,j] &lt; 0) or u'[j] = +oo (if a[p,j] &gt; 0).</p>
  * <p>Similarly, let:</p>
- * <p>J'' = {j : (a[p,j] > 0 and u[j] = +oo) or (20) (a[p,j] &lt; 0 and l[j] = -oo)}.</p>
+ * <p>J'' = {j : (a[p,j] &gt; 0 and u[j] = +oo) or (20) (a[p,j] &lt; 0 and l[j] = -oo)}.</p>
  * <p>Then (assuming that row lower bound L[p] can be active) the following three cases are possible:</p>
  * <p>1) |J''| = 0. In this case U'[p] exists, thus, for all variables x[j] in row (1) we can use formulae (15) and (18);</p>
- * <p>2) J'' = {k}. In this case U'[p] = +oo, however, L[p,k] (7) exists, so for variable x[k] we can use formulae (8) and (9). Note that for all other variables x[j] (j != k) l'[j] = -oo (if a[p,j] > 0) or u'[j] = +oo (if a[p,j] &lt; 0);</p>
- * <p>3) |J''| > 1. In this case for all variables x[j] in row (1) we have l'[j] = -oo (if a[p,j] > 0) or u'[j] = +oo (if a[p,j] &lt; 0). </p>
+ * <p>2) J'' = {k}. In this case U'[p] = +oo, however, L[p,k] (7) exists, so for variable x[k] we can use formulae (8) and (9). Note that for all other variables x[j] (j != k) l'[j] = -oo (if a[p,j] &gt; 0) or u'[j] = +oo (if a[p,j] &lt; 0);</p>
+ * <p>3) |J''| &gt; 1. In this case for all variables x[j] in row (1) we have l'[j] = -oo (if a[p,j] &gt; 0) or u'[j] = +oo (if a[p,j] &lt; 0). </p>
  */
 public";
 
@@ -4171,7 +4171,7 @@ public";
  * <p>1 - problem has no primal feasible solution.</p>
  * <p>PROBLEM TRANSFORMATION</p>
  * <p>If the following conditions hold:</p>
- * <p>L[p] &lt;= +eps, U[p] >= -eps, (2)</p>
+ * <p>L[p] &lt;= +eps, U[p] &gt;= -eps, (2)</p>
  * <p>where eps is an absolute tolerance for row value, the row p is redundant. In this case it can be replaced by equivalent redundant row, which is free (unbounded), and then removed from the problem. Otherwise, the row p is infeasible and, thus, the problem has no primal feasible solution.</p>
  * <p>RECOVERING BASIC SOLUTION</p>
  * <p>See the routine npp_free_row.</p>
@@ -4248,7 +4248,7 @@ public";
  * <p>Processing implied column lower bound l'[q] includes the following cases:</p>
  * <p>1) if l'[q] &lt; l[q] + eps, implied lower bound is redundant;</p>
  * <p>2) if l[q] + eps &lt;= l[q] &lt;= u[q] + eps, current column lower bound l[q] can be strengthened by replacing it with l'[q]. If in this case new column lower bound becomes close to current column upper bound u[q], the column can be fixed on its upper bound;</p>
- * <p>3) if l'[q] > u[q] + eps, implied lower bound violates current column upper bound u[q], in which case the problem has no primal feasible solution. </p>
+ * <p>3) if l'[q] &gt; u[q] + eps, implied lower bound violates current column upper bound u[q], in which case the problem has no primal feasible solution. </p>
  */
 public";
 
@@ -4272,7 +4272,7 @@ public";
  u'[q] := &lt; (2) ( floor(l'[q]), otherwise</p>
  * <p>where floor(u'[q]+0.5) is the nearest integer to u'[q], floor(u'[q]) is largest integer not greater than u'[q], and eps is an absolute tolerance for column value.</p>
  * <p>Processing implied column upper bound u'[q] includes the following cases:</p>
- * <p>1) if u'[q] > u[q] - eps, implied upper bound is redundant;</p>
+ * <p>1) if u'[q] &gt; u[q] - eps, implied upper bound is redundant;</p>
  * <p>2) if l[q] - eps &lt;= u[q] &lt;= u[q] - eps, current column upper bound u[q] can be strengthened by replacing it with u'[q]. If in this case new column upper bound becomes close to current column lower bound, the column can be fixed on its lower bound;</p>
  * <p>3) if u'[q] &lt; l[q] - eps, implied upper bound violates current column lower bound l[q], in which case the problem has no primal feasible solution. </p>
  */
@@ -4350,18 +4350,18 @@ public";
  * <p>Analysis of row (1) is based on analysis of its implied lower and upper bounds, which are determined by bounds of corresponding columns (variables) as follows:</p>
  * <p>L'[p] = inf sum a[p,j] x[j] = j (3) = sum a[p,j] l[j] + sum a[p,j] u[j], j in Jp j in Jn</p>
  * <p>U'[p] = sup sum a[p,j] x[j] = (4) = sum a[p,j] u[j] + sum a[p,j] l[j], j in Jp j in Jn</p>
- * <p>Jp = {j: a[p,j] > 0}, Jn = {j: a[p,j] &lt; 0}. (5)</p>
+ * <p>Jp = {j: a[p,j] &gt; 0}, Jn = {j: a[p,j] &lt; 0}. (5)</p>
  * <p>(Note that bounds of all columns in row p are assumed to be correct, so L'[p] &lt;= U'[p].)</p>
  * <p>Analysis of row lower bound L[p] includes the following cases:</p>
- * <p>1) if L[p] > U'[p] + eps, where eps is an absolute tolerance for row value, row lower bound L[p] and implied row upper bound U'[p] are inconsistent, ergo, the problem has no primal feasible solution;</p>
+ * <p>1) if L[p] &gt; U'[p] + eps, where eps is an absolute tolerance for row value, row lower bound L[p] and implied row upper bound U'[p] are inconsistent, ergo, the problem has no primal feasible solution;</p>
  * <p>2) if U'[p] - eps &lt;= L[p] &lt;= U'[p] + eps, i.e. if L[p] =~ U'[p], the row is a forcing row on its lower bound (see description of the routine npp_forcing_row);</p>
- * <p>3) if L[p] > L'[p] + eps, row lower bound L[p] can be active (this conclusion does not account other rows in the problem);</p>
+ * <p>3) if L[p] &gt; L'[p] + eps, row lower bound L[p] can be active (this conclusion does not account other rows in the problem);</p>
  * <p>4) if L[p] &lt;= L'[p] + eps, row lower bound L[p] cannot be active, so it is redundant and can be removed (replaced by -oo).</p>
  * <p>Analysis of row upper bound U[p] is performed in a similar way and includes the following cases:</p>
  * <p>1) if U[p] &lt; L'[p] - eps, row upper bound U[p] and implied row lower bound L'[p] are inconsistent, ergo the problem has no primal feasible solution;</p>
  * <p>2) if L'[p] - eps &lt;= U[p] &lt;= L'[p] + eps, i.e. if U[p] =~ L'[p], the row is a forcing row on its upper bound (see description of the routine npp_forcing_row);</p>
  * <p>3) if U[p] &lt; U'[p] - eps, row upper bound U[p] can be active (this conclusion does not account other rows in the problem);</p>
- * <p>4) if U[p] >= U'[p] - eps, row upper bound U[p] cannot be active, so it is redundant and can be removed (replaced by +oo). </p>
+ * <p>4) if U[p] &gt;= U'[p] - eps, row upper bound U[p] cannot be active, so it is redundant and can be removed (replaced by +oo). </p>
  */
 public";
 
@@ -4593,12 +4593,12 @@ public";
  * <p>For the given local bound for any integer feasible solution to the current subproblem the routine ios_round_bound returns an improved local bound for the same integer feasible solution.</p>
  * <p>BACKGROUND</p>
  * <p>Let the current subproblem has the following objective function:</p>
- * <p>z = sum c[j] * x[j] + s >= b, (1) j in J</p>
+ * <p>z = sum c[j] * x[j] + s &gt;= b, (1) j in J</p>
  * <p>where J = {j: c[j] is non-zero and integer, x[j] is integer}, s is the sum of terms corresponding to fixed variables, b is an initial local bound (minimization).</p>
  * <p>From (1) it follows that:</p>
- * <p>d * sum (c[j] / d) * x[j] + s >= b, (2) j in J</p>
+ * <p>d * sum (c[j] / d) * x[j] + s &gt;= b, (2) j in J</p>
  * <p>or, equivalently,</p>
- * <p>sum (c[j] / d) * x[j] >= (b - s) / d = h, (3) j in J</p>
+ * <p>sum (c[j] / d) * x[j] &gt;= (b - s) / d = h, (3) j in J</p>
  * <p>where d = gcd(c[j]). Since the left-hand side of (3) is integer, h = (b - s) / d can be rounded up to the nearest integer:</p>
  * <p>h' = ceil(h) = (b' - s) / d, (4)</p>
  * <p>that gives an rounded, improved local bound:</p>
@@ -6283,7 +6283,7 @@ public";
  * <p>SYNOPSIS</p>
  * <p>#include \"misc.h\" int gcdn(int n, int x[]);</p>
  * <p>RETURNS</p>
- * <p>The routine gcdn returns gcd(x[1], x[2], ..., x[n]), the greatest common divisor of n positive integers given, n > 0.</p>
+ * <p>The routine gcdn returns gcd(x[1], x[2], ..., x[n]), the greatest common divisor of n positive integers given, n &gt; 0.</p>
  * <p>BACKGROUND</p>
  * <p>The routine gcdn is based on the following identity:</p>
  * <p>gcd(x, y, z) = gcd(gcd(x, y), z).</p>
@@ -6640,13 +6640,13 @@ public";
  * <p>DESCRIPTION</p>
  * <p>The routine ffalg implements the Ford-Fulkerson algorithm to find a maximal flow in the specified flow network.</p>
  * <p>INPUT PARAMETERS</p>
- * <p>nv is the number of nodes, nv >= 2.</p>
- * <p>na is the number of arcs, na >= 0.</p>
+ * <p>nv is the number of nodes, nv &gt;= 2.</p>
+ * <p>na is the number of arcs, na &gt;= 0.</p>
  * <p>tail[a], a = 1,...,na, is the index of tail node of arc a.</p>
  * <p>head[a], a = 1,...,na, is the index of head node of arc a.</p>
  * <p>s is the source node index, 1 &lt;= s &lt;= nv.</p>
  * <p>t is the sink node index, 1 &lt;= t &lt;= nv, t != s.</p>
- * <p>cap[a], a = 1,...,na, is the capacity of arc a, cap[a] >= 0.</p>
+ * <p>cap[a], a = 1,...,na, is the capacity of arc a, cap[a] &gt;= 0.</p>
  * <p>NOTE: Multiple arcs are allowed, but self-loops are not allowed.</p>
  * <p>OUTPUT PARAMETERS</p>
  * <p>x[a], a = 1,...,na, is optimal value of the flow through arc a.</p>
@@ -6713,7 +6713,7 @@ public";
  * <p>DESCRIPTION</p>
  * <p>The routine glp_strong_comp finds all strongly connected components of the specified graph.</p>
  * <p>The parameter v_num specifies an offset of the field of type int in the vertex data block, to which the routine stores the number of a strongly connected component containing that vertex. If v_num &lt; 0, no component numbers are stored.</p>
- * <p>The components are numbered in arbitrary order from 1 to nc, where nc is the total number of components found, 0 &lt;= nc &lt;= |V|. However, the component numbering has the property that for every arc (i->j) in the graph the condition num(i) >= num(j) holds.</p>
+ * <p>The components are numbered in arbitrary order from 1 to nc, where nc is the total number of components found, 0 &lt;= nc &lt;= |V|. However, the component numbering has the property that for every arc (i-&gt;j) in the graph the condition num(i) &gt;= num(j) holds.</p>
  * <p>RETURNS</p>
  * <p>The routine returns nc, the total number of components found. </p>
  */
@@ -6727,7 +6727,7 @@ public";
  * <p>DESCRIPTION</p>
  * <p>The routine glp_top_sort performs topological sorting of vertices of the specified acyclic digraph.</p>
  * <p>The parameter v_num specifies an offset of the field of type int in the vertex data block, to which the routine stores the vertex number assigned. If v_num &lt; 0, vertex numbers are not stored.</p>
- * <p>The vertices are numbered from 1 to n, where n is the total number of vertices in the graph. The vertex numbering has the property that for every arc (i->j) in the graph the condition num(i) &lt; num(j) holds. Special case num(i) = 0 means that vertex i is not assigned a number, because the graph is not acyclic.</p>
+ * <p>The vertices are numbered from 1 to n, where n is the total number of vertices in the graph. The vertex numbering has the property that for every arc (i-&gt;j) in the graph the condition num(i) &lt; num(j) holds. Special case num(i) = 0 means that vertex i is not assigned a number, because the graph is not acyclic.</p>
  * <p>RETURNS</p>
  * <p>If the graph is acyclic and therefore all the vertices have been assigned numbers, the routine glp_top_sort returns zero. Otherwise, if the graph is not acyclic, the routine returns the number of vertices which have not been numbered, i.e. for which num(i) = 0. </p>
  */
@@ -8443,8 +8443,8 @@ public";
  * <p>DESCRIPTION</p>
  * <p>The routine okalg implements the out-of-kilter algorithm to find a minimal-cost circulation in the specified flow network.</p>
  * <p>INPUT PARAMETERS</p>
- * <p>nv is the number of nodes, nv >= 0.</p>
- * <p>na is the number of arcs, na >= 0.</p>
+ * <p>nv is the number of nodes, nv &gt;= 0.</p>
+ * <p>na is the number of arcs, na &gt;= 0.</p>
  * <p>tail[a], a = 1,...,na, is the index of tail node of arc a.</p>
  * <p>head[a], a = 1,...,na, is the index of head node of arc a.</p>
  * <p>low[a], a = 1,...,na, is an lower bound to the flow through arc a.</p>
@@ -8878,7 +8878,7 @@ public";
  * <p>where y is an auxiliary variable of the row, alfa[j] is an influence coefficient, xN[j] is a non-basic variable.</p>
  * <p>The row is passed to the routine in sparse format. Ordinal numbers of non-basic variables are stored in locations ind[1], ..., ind[len], where numbers 1 to m denote auxiliary variables while numbers m+1 to m+n denote structural variables. Corresponding non-zero coefficients alfa[j] are stored in locations val[1], ..., val[len]. The arrays ind and val are ot changed on exit.</p>
  * <p>The parameters type and rhs specify the row type and its right-hand side as follows:</p>
- * <p>type = GLP_LO: y = sum alfa[j] * xN[j] >= rhs</p>
+ * <p>type = GLP_LO: y = sum alfa[j] * xN[j] &gt;= rhs</p>
  * <p>type = GLP_UP: y = sum alfa[j] * xN[j] &lt;= rhs</p>
  * <p>The parameter eps is an absolute tolerance (small positive number) used by the routine to skip small coefficients alfa[j] on performing the dual ratio test.</p>
  * <p>If the operation was successful, the routine stores the following information to corresponding location (if some parameter is NULL, its value is not stored):</p>
@@ -8887,7 +8887,7 @@ public";
  * <p>dx difference between values of the non-basic variable in the adjacent and current bases, dx = x.new - x.old;</p>
  * <p>y value of the row (i.e. of its auxiliary variable) in the current basis;</p>
  * <p>dy difference between values of the row in the adjacent and current bases, dy = y.new - y.old;</p>
- * <p>dz difference between values of the objective function in the adjacent and current bases, dz = z.new - z.old. Note that in case of minimization dz >= 0, and in case of maximization dz &lt;= 0, i.e. in the adjacent basis the objective function always gets worse (degrades). </p>
+ * <p>dz difference between values of the objective function in the adjacent and current bases, dz = z.new - z.old. Note that in case of minimization dz &gt;= 0, and in case of maximization dz &lt;= 0, i.e. in the adjacent basis the objective function always gets worse (degrades). </p>
  */
 public";
 
@@ -9273,42 +9273,42 @@ public";
  * <p>The routine npp_reduce_ineq_coef returns the number of coefficients reduced.</p>
  * <p>BACKGROUND</p>
  * <p>Consider an inequality constraint:</p>
- * <p>sum a[j] x[j] >= b. (1) j in J</p>
+ * <p>sum a[j] x[j] &gt;= b. (1) j in J</p>
  * <p>(In case of '&lt;=' inequality it can be transformed to '>=' format by multiplying both its sides by -1.) Let x[k] be a binary variable; other variables can be integer as well as continuous. We can write constraint (1) as follows:</p>
- * <p>a[k] x[k] + t[k] >= b, (2)</p>
+ * <p>a[k] x[k] + t[k] &gt;= b, (2)</p>
  * <p>where:</p>
  * <p>t[k] = sum a[j] x[j]. (3) j in Jk}</p>
  * <p>Since x[k] is binary, constraint (2) is equivalent to disjunction of the following two constraints:</p>
- * <p>x[k] = 0, t[k] >= b (4)</p>
+ * <p>x[k] = 0, t[k] &gt;= b (4)</p>
  * <p>OR</p>
- * <p>x[k] = 1, t[k] >= b - a[k]. (5)</p>
+ * <p>x[k] = 1, t[k] &gt;= b - a[k]. (5)</p>
  * <p>Let also that for the partial sum t[k] be known some its implied lower bound inf t[k].</p>
- * <p>Case a[k] > 0. Let inf t[k] &lt; b, since otherwise both constraints (4) and (5) and therefore constraint (2) are redundant. If inf t[k] > b - a[k], only constraint (5) is redundant, in which case it can be replaced with the following redundant and therefore equivalent constraint:</p>
- * <p>t[k] >= b - a'[k] = inf t[k], (6)</p>
+ * <p>Case a[k] &gt; 0. Let inf t[k] &lt; b, since otherwise both constraints (4) and (5) and therefore constraint (2) are redundant. If inf t[k] &gt; b - a[k], only constraint (5) is redundant, in which case it can be replaced with the following redundant and therefore equivalent constraint:</p>
+ * <p>t[k] &gt;= b - a'[k] = inf t[k], (6)</p>
  * <p>where:</p>
  * <p>a'[k] = b - inf t[k]. (7)</p>
  * <p>Thus, the original constraint (2) is equivalent to the following constraint with coefficient at variable x[k] changed:</p>
- * <p>a'[k] x[k] + t[k] >= b. (8)</p>
- * <p>From inf t[k] &lt; b it follows that a'[k] > 0, i.e. the coefficient at x[k] keeps its sign. And from inf t[k] > b - a[k] it follows that a'[k] &lt; a[k], i.e. the coefficient reduces in magnitude.</p>
- * <p>Case a[k] &lt; 0. Let inf t[k] &lt; b - a[k], since otherwise both constraints (4) and (5) and therefore constraint (2) are redundant. If inf t[k] > b, only constraint (4) is redundant, in which case it can be replaced with the following redundant and therefore equivalent constraint:</p>
- * <p>t[k] >= b' = inf t[k]. (9)</p>
+ * <p>a'[k] x[k] + t[k] &gt;= b. (8)</p>
+ * <p>From inf t[k] &lt; b it follows that a'[k] &gt; 0, i.e. the coefficient at x[k] keeps its sign. And from inf t[k] &gt; b - a[k] it follows that a'[k] &lt; a[k], i.e. the coefficient reduces in magnitude.</p>
+ * <p>Case a[k] &lt; 0. Let inf t[k] &lt; b - a[k], since otherwise both constraints (4) and (5) and therefore constraint (2) are redundant. If inf t[k] &gt; b, only constraint (4) is redundant, in which case it can be replaced with the following redundant and therefore equivalent constraint:</p>
+ * <p>t[k] &gt;= b' = inf t[k]. (9)</p>
  * <p>Rewriting constraint (5) as follows:</p>
- * <p>t[k] >= b - a[k] = b' - a'[k], (10)</p>
+ * <p>t[k] &gt;= b - a[k] = b' - a'[k], (10)</p>
  * <p>where:</p>
  * <p>a'[k] = a[k] + b' - b = a[k] + inf t[k] - b, (11)</p>
  * <p>we can see that disjunction of constraint (9) and (10) is equivalent to disjunction of constraint (4) and (5), from which it follows that the original constraint (2) is equivalent to the following constraint with both coefficient at variable x[k] and right-hand side changed:</p>
- * <p>a'[k] x[k] + t[k] >= b'. (12)</p>
- * <p>From inf t[k] &lt; b - a[k] it follows that a'[k] &lt; 0, i.e. the coefficient at x[k] keeps its sign. And from inf t[k] > b it follows that a'[k] > a[k], i.e. the coefficient reduces in magnitude.</p>
+ * <p>a'[k] x[k] + t[k] &gt;= b'. (12)</p>
+ * <p>From inf t[k] &lt; b - a[k] it follows that a'[k] &lt; 0, i.e. the coefficient at x[k] keeps its sign. And from inf t[k] &gt; b it follows that a'[k] &gt; a[k], i.e. the coefficient reduces in magnitude.</p>
  * <p>PROBLEM TRANSFORMATION</p>
  * <p>In the routine npp_reduce_ineq_coef the following implied lower bound of the partial sum (3) is used:</p>
  * <p>inf t[k] = sum a[j] l[j] + sum a[j] u[j], (13) j in Jpk} k in Jnk}</p>
- * <p>where Jp = {j : a[j] > 0}, Jn = {j : a[j] &lt; 0}, l[j] and u[j] are lower and upper bounds, resp., of variable x[j].</p>
- * <p>In order to compute inf t[k] more efficiently, the following formula, which is equivalent to (13), is actually used:           ( h - a[k] l[k] = h,        if a[k] > 0,
+ * <p>where Jp = {j : a[j] &gt; 0}, Jn = {j : a[j] &lt; 0}, l[j] and u[j] are lower and upper bounds, resp., of variable x[j].</p>
+ * <p>In order to compute inf t[k] more efficiently, the following formula, which is equivalent to (13), is actually used:           ( h - a[k] l[k] = h,        if a[k] &gt; 0,
  inf t[k] = &lt; (14) ( h - a[k] u[k] = h - a[k], if a[k] &lt; 0,</p>
  * <p>where:</p>
  * <p>h = sum a[j] l[j] + sum a[j] u[j] (15) j in Jp j in Jn</p>
  * <p>is the implied lower bound of row (1).</p>
- * <p>Reduction of positive coefficient (a[k] > 0) does not change value of h, since l[k] = 0. In case of reduction of negative coefficient (a[k] &lt; 0) from (11) it follows that:</p>
+ * <p>Reduction of positive coefficient (a[k] &gt; 0) does not change value of h, since l[k] = 0. In case of reduction of negative coefficient (a[k] &lt; 0) from (11) it follows that:</p>
  * <p>delta a[k] = a'[k] - a[k] = inf t[k] - b (> 0), (16)</p>
  * <p>so new value of h (accounting that u[k] = 1) can be computed as follows:</p>
  * <p>h := h + delta a[k] = h + (inf t[k] - b). (17)</p>
@@ -9352,7 +9352,7 @@ public";
  * <p>PACKING INEQUALITIES</p>
  * <p>In canonical format the packing inequality is the following:</p>
  * <p>sum x[j] &lt;= 1, (1) j in J</p>
- * <p>where all variables x[j] are binary. This inequality expresses the condition that in any integer feasible solution at most one variable from set J can take non-zero (unity) value while other variables must be equal to zero. W.l.o.g. it is assumed that |J| >= 2, because if J is empty or |J| = 1, the inequality (1) is redundant.</p>
+ * <p>where all variables x[j] are binary. This inequality expresses the condition that in any integer feasible solution at most one variable from set J can take non-zero (unity) value while other variables must be equal to zero. W.l.o.g. it is assumed that |J| &gt;= 2, because if J is empty or |J| = 1, the inequality (1) is redundant.</p>
  * <p>In general case the packing inequality may include original variables x[j] as well as their complements x~[j]:</p>
  * <p>sum x[j] + sum x~[j] &lt;= 1, (2) j in Jp j in Jn</p>
  * <p>where Jp and Jn are not intersected. Therefore, using substitution x~[j] = 1 - x[j] gives the packing inequality in generalized format:</p>
@@ -9372,19 +9372,19 @@ public";
  * <p>PROBLEM TRANSFORMATION</p>
  * <p>Consider an inequality constraint:</p>
  * <p>sum a[j] x[j] &lt;= b, (1) j in J</p>
- * <p>where all variables x[j] are binary, and |J| >= 2. (In case of '>=' inequality it can be transformed to '&lt;=' format by multiplying both its sides by -1.)</p>
- * <p>Let Jp = {j: a[j] > 0}, Jn = {j: a[j] &lt; 0}. Performing substitution x[j] = 1 - x~[j] for all j in Jn, we have:</p>
+ * <p>where all variables x[j] are binary, and |J| &gt;= 2. (In case of '>=' inequality it can be transformed to '&lt;=' format by multiplying both its sides by -1.)</p>
+ * <p>Let Jp = {j: a[j] &gt; 0}, Jn = {j: a[j] &lt; 0}. Performing substitution x[j] = 1 - x~[j] for all j in Jn, we have:</p>
  * <p>sum a[j] x[j] &lt;= b ==> j in J</p>
  * <p>sum a[j] x[j] + sum a[j] x[j] &lt;= b ==> j in Jp j in Jn</p>
  * <p>sum a[j] x[j] + sum a[j] (1 - x~[j]) &lt;= b ==> j in Jp j in Jn</p>
  * <p>sum a[j] x[j] - sum a[j] x~[j] &lt;= b - sum a[j]. j in Jp j in Jn j in Jn</p>
- * <p>Thus, meaning the transformation above, we can assume that in inequality (1) all coefficients a[j] are positive. Moreover, we can assume that a[j] &lt;= b. In fact, let a[j] > b; then the following three cases are possible:</p>
+ * <p>Thus, meaning the transformation above, we can assume that in inequality (1) all coefficients a[j] are positive. Moreover, we can assume that a[j] &lt;= b. In fact, let a[j] &gt; b; then the following three cases are possible:</p>
  * <p>1) b &lt; 0. In this case inequality (1) is infeasible, so the problem has no feasible solution (see the routine npp_analyze_row);</p>
  * <p>2) b = 0. In this case inequality (1) is a forcing inequality on its upper bound (see the routine npp_forcing row), from which it follows that all variables x[j] should be fixed at zero;</p>
- * <p>3) b > 0. In this case inequality (1) defines an implied zero upper bound for variable x[j] (see the routine npp_implied_bounds), from which it follows that x[j] should be fixed at zero.</p>
+ * <p>3) b &gt; 0. In this case inequality (1) defines an implied zero upper bound for variable x[j] (see the routine npp_implied_bounds), from which it follows that x[j] should be fixed at zero.</p>
  * <p>It is assumed that all three cases listed above have been recognized by the routine npp_process_prob, which performs basic MIP processing prior to a call the routine npp_hidden_packing. So, if one of these cases occurs, we should just skip processing such constraint.</p>
  * <p>Thus, let 0 &lt; a[j] &lt;= b. Then it is obvious that constraint (1) is equivalent to packing inquality only if:</p>
- * <p>a[j] + a[k] > b + eps (2)</p>
+ * <p>a[j] + a[k] &gt; b + eps (2)</p>
  * <p>for all j, k in J, j != k, where eps is an absolute tolerance for row (linear form) value. Checking the condition (2) for all j and k, j != k, requires time O(|J|^2). However, this time can be reduced to O(|J|), if use minimal a[j] and a[k], in which case it is sufficient to check the condition (2) only once.</p>
  * <p>Once the original inequality (1) is replaced by equivalent packing inequality, we need to perform back substitution x~[j] = 1 - x[j] for all j in Jn (see above).</p>
  * <p>RECOVERING SOLUTION</p>
@@ -9410,12 +9410,12 @@ public";
  * <p>sum x[j] - sum x[j] &lt;= 1 - |Jn|, (2) j in Jp j in Jn</p>
  * <p>which is relaxation of the constraint (1) in the sense that any solution satisfying to that constraint also satisfies to the packing inequality (2). If such relaxation exists, the routine stores pointers to descriptors of corresponding binary variables and their flags, resp., to locations var[1], var[2], ..., var[len] and set[1], set[2], ..., set[len], where set[j] = 0 means that j in Jp and set[j] = 1 means that j in Jn.</p>
  * <p>RETURNS</p>
- * <p>The routine npp_implied_packing returns len, which is the total number of binary variables in the packing inequality found, len >= 2. However, if the relaxation does not exist, the routine returns zero.</p>
+ * <p>The routine npp_implied_packing returns len, which is the total number of binary variables in the packing inequality found, len &gt;= 2. However, if the relaxation does not exist, the routine returns zero.</p>
  * <p>ALGORITHM</p>
  * <p>If which = 0, the constraint coefficients (1) are multiplied by -1 and b is assigned -L; if which = 1, the constraint coefficients (1) are not changed and b is assigned +U. In both cases the specified constraint gets the following format:</p>
  * <p>sum a[j] x[j] &lt;= b. (3) j</p>
  * <p>(Note that (3) is a relaxation of (1), because one of bounds L or U is ignored.)</p>
- * <p>Let J be set of binary variables, Kp be set of non-binary (integer or continuous) variables with a[j] > 0, and Kn be set of non-binary variables with a[j] &lt; 0. Then the inequality (3) can be written as follows:</p>
+ * <p>Let J be set of binary variables, Kp be set of non-binary (integer or continuous) variables with a[j] &gt; 0, and Kn be set of non-binary variables with a[j] &lt; 0. Then the inequality (3) can be written as follows:</p>
  * <p>sum a[j] x[j] &lt;= b - sum a[j] x[j] - sum a[j] x[j]. (4) j in J j in Kp j in Kn</p>
  * <p>To get rid of non-binary variables we can replace the inequality (4) by the following relaxed inequality:</p>
  * <p>sum a[j] x[j] &lt;= b~, (5) j in J</p>
@@ -9424,7 +9424,7 @@ public";
  * <p>= b - inf sum a[j] x[j] - inf sum a[j] x[j] = (6) j in Kp j in Kn</p>
  * <p>= b - sum a[j] l[j] - sum a[j] u[j]. j in Kp j in Kn</p>
  * <p>Note that if lower bound l[j] (if j in Kp) or upper bound u[j] (if j in Kn) of some non-binary variable x[j] does not exist, then formally b = +oo, in which case further analysis is not performed.</p>
- * <p>Let Bp = {j in J: a[j] > 0}, Bn = {j in J: a[j] &lt; 0}. To make all the inequality coefficients in (5) positive, we replace all x[j] in Bn by their complementaries, substituting x[j] = 1 - x~[j] for all j in Bn, that gives:</p>
+ * <p>Let Bp = {j in J: a[j] &gt; 0}, Bn = {j in J: a[j] &lt; 0}. To make all the inequality coefficients in (5) positive, we replace all x[j] in Bn by their complementaries, substituting x[j] = 1 - x~[j] for all j in Bn, that gives:</p>
  * <p>sum a[j] x[j] - sum a[j] x~[j] &lt;= b~ - sum a[j]. (7) j in Bp j in Bn j in Bn</p>
  * <p>This inequality is a relaxation of the original constraint (1), and it is a binary knapsack inequality. Writing it in the standard format we have:</p>
  * <p>sum alfa[j] z[j] &lt;= beta, (8) j in J</p>
@@ -9434,8 +9434,8 @@ public";
  * <p>In the inequality (8) all coefficients are positive, therefore, the packing relaxation to be found for this inequality is the following:</p>
  * <p>sum z[j] &lt;= 1. (12) j in P</p>
  * <p>It is obvious that set P within J, which we would like to find, must satisfy to the following condition:</p>
- * <p>alfa[j] + alfa[k] > beta + eps for all j, k in P, j != k, (13)</p>
- * <p>where eps is an absolute tolerance for value of the linear form. Thus, it is natural to take P = {j: alpha[j] > (beta + eps) / 2}. Moreover, if in the equality (8) there exist coefficients alfa[k], for which alfa[k] &lt;= (beta + eps) / 2, but which, nevertheless, satisfies to the condition (13) for all j in P, one corresponding variable z[k] (having, for example, maximal coefficient alfa[k]) can be included in set P, that allows increasing the number of binary variables in (12) by one.</p>
+ * <p>alfa[j] + alfa[k] &gt; beta + eps for all j, k in P, j != k, (13)</p>
+ * <p>where eps is an absolute tolerance for value of the linear form. Thus, it is natural to take P = {j: alpha[j] &gt; (beta + eps) / 2}. Moreover, if in the equality (8) there exist coefficients alfa[k], for which alfa[k] &lt;= (beta + eps) / 2, but which, nevertheless, satisfies to the condition (13) for all j in P, one corresponding variable z[k] (having, for example, maximal coefficient alfa[k]) can be included in set P, that allows increasing the number of binary variables in (12) by one.</p>
  * <p>Once the set P has been built, for the inequality (12) we need to perform back substitution according to (10) in order to express it through the original binary variables. As the result of such back substitution the relaxed packing inequality get its final format (2), where Jp = J intersect Bp, and Jn = J intersect Bn. </p>
  */
 public";
@@ -9449,12 +9449,12 @@ public";
  * <p>If the specified row (constraint) is covering inequality (see below), the routine npp_is_covering returns non-zero. Otherwise, it returns zero.</p>
  * <p>COVERING INEQUALITIES</p>
  * <p>In canonical format the covering inequality is the following:</p>
- * <p>sum x[j] >= 1, (1) j in J</p>
- * <p>where all variables x[j] are binary. This inequality expresses the condition that in any integer feasible solution variables in set J cannot be all equal to zero at the same time, i.e. at least one variable must take non-zero (unity) value. W.l.o.g. it is assumed that |J| >= 2, because if J is empty, the inequality (1) is infeasible, and if |J| = 1, the inequality (1) is a forcing row.</p>
+ * <p>sum x[j] &gt;= 1, (1) j in J</p>
+ * <p>where all variables x[j] are binary. This inequality expresses the condition that in any integer feasible solution variables in set J cannot be all equal to zero at the same time, i.e. at least one variable must take non-zero (unity) value. W.l.o.g. it is assumed that |J| &gt;= 2, because if J is empty, the inequality (1) is infeasible, and if |J| = 1, the inequality (1) is a forcing row.</p>
  * <p>In general case the covering inequality may include original variables x[j] as well as their complements x~[j]:</p>
- * <p>sum x[j] + sum x~[j] >= 1, (2) j in Jp j in Jn</p>
+ * <p>sum x[j] + sum x~[j] &gt;= 1, (2) j in Jp j in Jn</p>
  * <p>where Jp and Jn are not intersected. Therefore, using substitution x~[j] = 1 - x[j] gives the packing inequality in generalized format:</p>
- * <p>sum x[j] - sum x[j] >= 1 - |Jn|. (3) j in Jp j in Jn</p>
+ * <p>sum x[j] - sum x[j] &gt;= 1 - |Jn|. (3) j in Jp j in Jn</p>
  * <p>(May note that the inequality (3) cuts off infeasible solutions, where x[j] = 0 for all j in Jp and x[j] = 1 for all j in Jn.)</p>
  * <p>NOTE: If |J| = 2, the inequality (3) is equivalent to packing inequality (see the routine npp_is_packing). </p>
  */
@@ -9471,15 +9471,15 @@ public";
  * <p>If the original inequality constraint was replaced by equivalent covering inequality, the routine npp_hidden_covering returns non-zero. Otherwise, it returns zero.</p>
  * <p>PROBLEM TRANSFORMATION</p>
  * <p>Consider an inequality constraint:</p>
- * <p>sum a[j] x[j] >= b, (1) j in J</p>
- * <p>where all variables x[j] are binary, and |J| >= 3. (In case of '&lt;=' inequality it can be transformed to '>=' format by multiplying both its sides by -1.)</p>
- * <p>Let Jp = {j: a[j] > 0}, Jn = {j: a[j] &lt; 0}. Performing substitution x[j] = 1 - x~[j] for all j in Jn, we have:</p>
- * <p>sum a[j] x[j] >= b ==> j in J</p>
- * <p>sum a[j] x[j] + sum a[j] x[j] >= b ==> j in Jp j in Jn</p>
- * <p>sum a[j] x[j] + sum a[j] (1 - x~[j]) >= b ==> j in Jp j in Jn</p>
- * <p>sum m a[j] x[j] - sum a[j] x~[j] >= b - sum a[j]. j in Jp j in Jn j in Jn</p>
- * <p>Thus, meaning the transformation above, we can assume that in inequality (1) all coefficients a[j] are positive. Moreover, we can assume that b > 0, because otherwise the inequality (1) would be redundant (see the routine npp_analyze_row). It is then obvious that constraint (1) is equivalent to covering inequality only if:</p>
- * <p>a[j] >= b, (2)</p>
+ * <p>sum a[j] x[j] &gt;= b, (1) j in J</p>
+ * <p>where all variables x[j] are binary, and |J| &gt;= 3. (In case of '&lt;=' inequality it can be transformed to '>=' format by multiplying both its sides by -1.)</p>
+ * <p>Let Jp = {j: a[j] &gt; 0}, Jn = {j: a[j] &lt; 0}. Performing substitution x[j] = 1 - x~[j] for all j in Jn, we have:</p>
+ * <p>sum a[j] x[j] &gt;= b ==> j in J</p>
+ * <p>sum a[j] x[j] + sum a[j] x[j] &gt;= b ==> j in Jp j in Jn</p>
+ * <p>sum a[j] x[j] + sum a[j] (1 - x~[j]) &gt;= b ==> j in Jp j in Jn</p>
+ * <p>sum m a[j] x[j] - sum a[j] x~[j] &gt;= b - sum a[j]. j in Jp j in Jn j in Jn</p>
+ * <p>Thus, meaning the transformation above, we can assume that in inequality (1) all coefficients a[j] are positive. Moreover, we can assume that b &gt; 0, because otherwise the inequality (1) would be redundant (see the routine npp_analyze_row). It is then obvious that constraint (1) is equivalent to covering inequality only if:</p>
+ * <p>a[j] &gt;= b, (2)</p>
  * <p>for all j in J.</p>
  * <p>Once the original inequality (1) is replaced by equivalent covering inequality, we need to perform back substitution x~[j] = 1 - x[j] for all j in Jn (see above).</p>
  * <p>RECOVERING SOLUTION</p>
@@ -9502,7 +9502,7 @@ public";
  * <p>PARTITIONING EQUALITIES</p>
  * <p>In canonical format the partitioning equality is the following:</p>
  * <p>sum x[j] = 1, (1) j in J</p>
- * <p>where all variables x[j] are binary. This equality expresses the condition that in any integer feasible solution exactly one variable in set J must take non-zero (unity) value while other variables must be equal to zero. W.l.o.g. it is assumed that |J| >= 2, because if J is empty, the inequality (1) is infeasible, and if |J| = 1, the inequality (1) is a fixing row.</p>
+ * <p>where all variables x[j] are binary. This equality expresses the condition that in any integer feasible solution exactly one variable in set J must take non-zero (unity) value while other variables must be equal to zero. W.l.o.g. it is assumed that |J| &gt;= 2, because if J is empty, the inequality (1) is infeasible, and if |J| = 1, the inequality (1) is a fixing row.</p>
  * <p>In general case the partitioning equality may include original variables x[j] as well as their complements x~[j]:</p>
  * <p>sum x[j] + sum x~[j] = 1, (2) j in Jp j in Jn</p>
  * <p>where Jp and Jn are not intersected. Therefore, using substitution x~[j] = 1 - x[j] leads to the partitioning equality in generalized format:</p>
@@ -9656,13 +9656,13 @@ public";
 </p>
  * <p>a[m,1]*x[1] + a[m,2]*x[2] + ... + a[m,n]*x[n] = b[m]</p>
  * <p>and non-negative variables</p>
- * <p>x[1] >= 0, x[2] >= 0, ..., x[n] >= 0</p>
+ * <p>x[1] &gt;= 0, x[2] &gt;= 0, ..., x[n] &gt;= 0</p>
  * <p>where: F is the objective function; x[1], ..., x[n] are (structural) variables; c[0] is a constant term of the objective function; c[1], ..., c[n] are objective coefficients; a[1,1], ..., a[m,n] are constraint coefficients; b[1], ..., b[n] are right-hand sides.</p>
  * <p>The solution is three vectors x, y, and z, which are stored by the routine in the arrays x, y, and z, respectively. These vectors correspond to the best primal-dual point found during optimization. They are approximate solution of the following system (which is the Karush-Kuhn-Tucker optimality conditions):</p>
  * <p>A*x = b (primal feasibility condition)</p>
  * <p>A'*y + z = c (dual feasibility condition)</p>
  * <p>x'*z = 0 (primal-dual complementarity condition)</p>
- * <p>x >= 0, z >= 0 (non-negativity condition)</p>
+ * <p>x &gt;= 0, z &gt;= 0 (non-negativity condition)</p>
  * <p>where: x[1], ..., x[n] are primal (structural) variables; y[1], ..., y[m] are dual variables (Lagrange multipliers) for equality constraints; z[1], ..., z[n] are dual variables (Lagrange multipliers) for non-negativity constraints.</p>
  * <p>RETURNS</p>
  * <p>0 LP has been successfully solved.</p>
@@ -9773,7 +9773,7 @@ public";
  * <p>OUTPUT PARAMETERS</p>
  * <p>(rchsze, rchset) - the reachable set; (nhdsze, nbrhd) - the neighborhood set.</p>
  * <p>UPDATED PARAMETERS</p>
- * <p>marker - the marker vector for reach and nbrhd sets. > 0 means the node is in reach set. &lt; 0 means the node has been merged with others in the quotient or it is in nbrhd set. </p>
+ * <p>marker - the marker vector for reach and nbrhd sets. &gt; 0 means the node is in reach set. &lt; 0 means the node has been merged with others in the quotient or it is in nbrhd set. </p>
  */
 public";
 
@@ -10124,7 +10124,7 @@ public";
  * <p>DESCRIPTION</p>
  * <p>The routine glp_cpp solves the critical path problem represented in the form of the project network.</p>
  * <p>The parameter G is a pointer to the graph object, which specifies the project network. This graph must be acyclic. Multiple arcs are allowed being considered as single arcs.</p>
- * <p>The parameter v_t specifies an offset of the field of type double in the vertex data block, which contains time t[i] >= 0 needed to perform corresponding job j. If v_t &lt; 0, it is assumed that t[i] = 1 for all jobs.</p>
+ * <p>The parameter v_t specifies an offset of the field of type double in the vertex data block, which contains time t[i] &gt;= 0 needed to perform corresponding job j. If v_t &lt; 0, it is assumed that t[i] = 1 for all jobs.</p>
  * <p>The parameter v_es specifies an offset of the field of type double in the vertex data block, to which the routine stores earliest start time for corresponding job. If v_es &lt; 0, this time is not stored.</p>
  * <p>The parameter v_ls specifies an offset of the field of type double in the vertex data block, to which the routine stores latest start time for corresponding job. If v_ls &lt; 0, this time is not stored.</p>
  * <p>RETURNS</p>
