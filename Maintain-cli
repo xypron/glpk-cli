@@ -26,4 +26,5 @@ make check-vb
 make check-fsharp
 git tag -s <release number>
 
-rsync -avP -e ssh swig/target/site xypron,glpk-cli@web.sourceforge.net htdocs/
+doxygen
+rsync -avP --delete -e ssh doc/cli/ xypron,glpk-cli@web.sourceforge.net:htdocs/
