@@ -17,6 +17,7 @@ Doxyfile                - release number
 ./configure
 make clean
 make documentation
+git commit -as
 make clean
 make dist
 make
