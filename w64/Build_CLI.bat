@@ -10,7 +10,7 @@ set HOME="C:\Program Files (x86)\Microsoft Visual Studio 14.0"
 rem Path to SwigWin
 set SWIG="C:\Program Files (x86)\swig\swigwin-3.0.8"
 rem Path to Windows SDK
-set SDK="C:\Program Files\Microsoft SDKs\Windows\v7.1"
+set SDK="C:\Program Files (x86)\Windows Kits\10"
 rem Path to .NET Framework
 set NET="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\"
 
@@ -26,7 +26,7 @@ csc.exe -target:library -out:libglpk-cli.dll ..\swig-cli\src\csharp\*.cs
 set INCLUDE=
 set LIB=
 call %HOME%\VC\vcvarsall.bat x64
-call %SDK%\bin\rc.exe glpk_cli_dll.rc
+call %SDK%\bin\x86\rc.exe glpk_cli_dll.rc
 %HOME%\VC\bin\nmake.exe /f Makefile_CLI_VC_DLL
 %HOME%\VC\bin\nmake.exe /f Makefile_CLI_VC_DLL check
 set INCLUDE=

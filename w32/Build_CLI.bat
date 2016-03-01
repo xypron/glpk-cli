@@ -12,7 +12,8 @@ rem Path to SwigWin
 if exist "C:\Program Files\swig\swigwin-3.0.8" set SWIG="C:\Program Files\swig\swigwin-3.0.8"
 if exist "C:\Program Files (x86)\swig\swigwin-3.0.8" set SWIG="C:\Program Files (x86)\swig\swigwin-3.0.8"
 rem Path to Windows SDK
-set SDK="C:\Program Files\Microsoft SDKs\Windows\v7.1"
+if exist "C:\Program Files\Windows Kits\10" set SDK="C:\Program Files\Windows Kits\10"
+if exist "C:\Program Files (x86)\Windows Kits\10" set SDK="C:\Program Files (x86)\Windows Kits\10"
 rem Path to .NET Framework
 set NET="C:\Windows\Microsoft.NET\Framework\v4.0.30319\"
 
@@ -28,7 +29,7 @@ csc.exe -target:library -out:libglpk-cli.dll ..\swig-cli\src\csharp\*.cs
 set INCLUDE=
 set LIB=
 call %HOME%\VC\vcvarsall.bat x86
-call %SDK%\bin\rc.exe glpk_cli_dll.rc
+call %SDK%\bin\x86\rc.exe glpk_cli_dll.rc
 %HOME%\VC\bin\nmake.exe /f Makefile_CLI_VC_DLL
 %HOME%\VC\bin\nmake.exe /f Makefile_CLI_VC_DLL check
 set INCLUDE=
