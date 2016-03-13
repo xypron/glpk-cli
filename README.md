@@ -126,6 +126,10 @@ from the w64 directory:
 
 ## Revision history
 
+1.3.0 - 2016-03-13
+
+* Change Makefiles for GLPK 4.59
+
 1.2.0 - 2016-02-18
 
 * Change Makefiles for GLPK 4.58

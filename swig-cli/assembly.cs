@@ -3,7 +3,7 @@ using System.Reflection;
 
 // Assembly version
 [assembly:AssemblyVersionAttribute(
-    "1.2.0.0")]
+    "1.3.0.0")]
 [assembly:AssemblyCopyrightAttribute(
     "Heinrich Schuchardt <xypron.glpk@gmx.de>, GPLv3")]
 [assembly:AssemblyProductAttribute(
