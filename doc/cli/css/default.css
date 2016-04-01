@@ -81,7 +81,8 @@ div {
   color: #ffffff;
   height: 100px;
   padding-bottom: 10px;
-  font-size:2.5em;
+  font-size: 2.5em;
+  white-space: nowrap;
   }
 
 #nav {
