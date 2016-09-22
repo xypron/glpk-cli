@@ -58,7 +58,7 @@ Public Class clsGmpl
 			End If
 
 			' generate model
-			ret = GLPK.glp_mpl_generate (tran, 0)
+			ret = GLPK.glp_mpl_generate (tran, Nothing)
 			If ret <> 0 Then
 				GLPK.glp_mpl_free_wksp (tran)
 				GLPK.glp_delete_prob (lp)
