@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace org.gnu.glpk {
 
@@ -8,7 +9,7 @@ namespace org.gnu.glpk {
      * <p>An object can be registered as listener for terminal output using
      * the {@link #addListener(IGlpkTerminalListener) addListener} method.
      * <p>GLPK will call method {@link #callback(string) callback} before producing
-     * terminal output. The listeners can inhibit the terminal output by returning
+     * terminal output. The listeners.Value can inhibit the terminal output by returning
      * <code>false</code> in the {@link IGlpkTerminalListener#output(string) output}
      * routine.
      * <p>If a {@link GlpkException GlpkExeption} has occured it is necessary to
@@ -25,8 +26,11 @@ namespace org.gnu.glpk {
         /**
          * List of callback listeners.
          */
-        private static LinkedList<IGlpkTerminalListener> listeners
-                = new LinkedList<IGlpkTerminalListener>();
+        private static ThreadLocal<LinkedList<IGlpkTerminalListener>> listeners
+                = new ThreadLocal<LinkedList<IGlpkTerminalListener>>(() =>
+		{
+			return new LinkedList<IGlpkTerminalListener>();
+		});
 
         /**
          * Constructor.
@@ -36,15 +40,15 @@ namespace org.gnu.glpk {
 
         /**
          * Callback function called by native library.
-         * Output to the console is created if any of the listeners requests it.
+         * Output to the console is created if any of the listeners.Value requests it.
          * @param str string to be written to console
          * @return 0 if output is requested
          */
         public static int callback(string str) {
             bool output = false;
 
-            if (listeners.Count > 0) {
-                foreach (IGlpkTerminalListener listener in listeners) {
+            if (listeners.Value.Count > 0) {
+                foreach (IGlpkTerminalListener listener in listeners.Value) {
                     output |= listener.output(str);
                 }
                 if (output) {
@@ -62,7 +66,7 @@ namespace org.gnu.glpk {
          */
         public static void addListener(IGlpkTerminalListener listener) {
             GLPK.glp_term_hook(null, null);
-            listeners.AddLast(listener);
+            listeners.Value.AddLast(listener);
         }
 
         /**
@@ -71,8 +75,8 @@ namespace org.gnu.glpk {
          * @return true if the listener was found
          */
         public static bool removeListener(IGlpkTerminalListener listener) {
-            if (listeners.Contains(listener)) {
-                listeners.Remove(listener);
+            if (listeners.Value.Contains(listener)) {
+                listeners.Value.Remove(listener);
                 return true;
             } else {
                 return false;

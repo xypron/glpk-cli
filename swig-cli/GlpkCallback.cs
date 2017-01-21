@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace org.gnu.glpk {
 
@@ -17,8 +18,11 @@ namespace org.gnu.glpk {
         /**
          * List of callback listeners.
          */
-        private static LinkedList<IGlpkCallbackListener> listeners
-                = new LinkedList<IGlpkCallbackListener>();
+        private static ThreadLocal<LinkedList<IGlpkCallbackListener>> listeners
+                = new ThreadLocal<LinkedList<IGlpkCallbackListener>> (() =>
+		{
+			return new LinkedList<IGlpkCallbackListener>();
+		});
 
         /**
          * Constructor.
@@ -33,7 +37,7 @@ namespace org.gnu.glpk {
         public static void callback(IntPtr cPtr) {
             glp_tree tree;
             tree = new glp_tree(cPtr, false);
-            foreach (IGlpkCallbackListener listener in listeners) {
+            foreach (IGlpkCallbackListener listener in listeners.Value) {
                 listener.callback(tree);
             }
         }
@@ -43,7 +47,7 @@ namespace org.gnu.glpk {
          * @param listener listener for callbacks
          */
         public static void addListener(IGlpkCallbackListener listener) {
-            listeners.AddLast(listener);
+            listeners.Value.AddLast(listener);
         }
 
         /**
@@ -52,8 +56,8 @@ namespace org.gnu.glpk {
          * @return true if the listener was found
          */
         public static bool removeListener(IGlpkCallbackListener listener) {
-            if (listeners.Contains(listener)) {
-                listeners.Remove(listener);
+            if (listeners.Value.Contains(listener)) {
+                listeners.Value.Remove(listener);
                 return true;
             } else {
                 return false;
