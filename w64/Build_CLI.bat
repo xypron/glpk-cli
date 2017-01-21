@@ -8,7 +8,7 @@ set GLPK_HOME=".."
 rem Path to Visual Studio Express
 set HOME="C:\Program Files (x86)\Microsoft Visual Studio 14.0"
 rem Path to SwigWin
-set SWIG="C:\Program Files (x86)\swig\swigwin-3.0.8"
+set SWIG="C:\Program Files (x86)\swig\swigwin-3.0.11"
 rem Path to Windows SDK
 set SDK="C:\Program Files (x86)\Windows Kits\10"
 rem Path to .NET Framework

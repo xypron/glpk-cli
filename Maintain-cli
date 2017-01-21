@@ -2,15 +2,17 @@
 
 Update version information in
 
-README.md               - release information
+README.md               - release information, Swig version
 configure.ac            - release number
 doc/glpk-cli.tex        - GLPK version and release number
 swig-cli/assembly.cs    - release number
 swig-cli/Makefile.am    - library version number
 w32/glpk_cli_dll.rc     - GLPK version and release number
 w32/Makefile_CLI_VC_DLL - GLPK version
+w32/Build_CLI.bat       - Swig version
 w64/glpk_cli_dll.rc     - GLPK version and release number
 w64/Makefile_CLI_VC_DLL - GLPK version
+w64/Build_CLI.bat       - Swig version
 Doxyfile                - release number
 
 ./autogen.sh
