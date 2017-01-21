@@ -12,6 +12,8 @@ namespace org.gnu.glpk {
      * terminal output. The listeners.Value can inhibit the terminal output by returning
      * <code>false</code> in the {@link IGlpkTerminalListener#output(string) output}
      * routine.
+     * <p>The listener list is stored in thread local storage. Each thread has to
+     * register its own listener.
      * <p>If a {@link GlpkException GlpkExeption} has occured it is necessary to
      * call <pre>
      * GLPK.glp_term_hook(null, null);</pre>

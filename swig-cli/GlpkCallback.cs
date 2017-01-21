@@ -12,6 +12,8 @@ namespace org.gnu.glpk {
      * or to supply a heuristic solution. To find out why the callback is
      * issued use method {@link GLPK#glp_ios_reason(glp_tree)
      * GLPK.glp_ios_reason}.
+     * <p>The listener list is stored in thread local storage. Each thread has to
+     * register its own listener.
      */
     public class GlpkCallback {
 
