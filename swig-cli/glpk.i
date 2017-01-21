@@ -35,6 +35,7 @@ public class "
 #include "glpk_cli.h"
 #include <locale.h>
 #include <setjmp.h>
+#include "config.h"
 
 typedef void (SWIGSTDCALL* CSharpGlpkCallback_t)(void*);
 typedef int (SWIGSTDCALL* CSharpGlpkTerminal_t)(const char*);
@@ -55,14 +56,14 @@ void glp_cli_error_hook(void *in);
  * Static variables to handle errors inside callbacks
  */
 #define GLP_CLI_MAX_CALLBACK_LEVEL 4
-int glp_cli_callback_level = 0;
-int glp_cli_error_occured = 0;
-jmp_buf *glp_cli_callback_env[GLP_CLI_MAX_CALLBACK_LEVEL];
+TLS int glp_cli_callback_level = 0;
+TLS int glp_cli_error_occured = 0;
+TLS jmp_buf *glp_cli_callback_env[GLP_CLI_MAX_CALLBACK_LEVEL];
 
 /*
  * Message level.
  */
-int glp_cli_msg_level = GLP_CLI_MSG_LVL_OFF;
+TLS int glp_cli_msg_level = GLP_CLI_MSG_LVL_OFF;
 
 /**
  * Abort with error message.
