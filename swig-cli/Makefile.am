@@ -72,6 +72,7 @@ check:
 check-fsharp:
 	cd ../examples/fsharp && fsharpc -r:libglpk-cli.dll \
 	  --lib:../../swig-cli/ version.fs
+	chmod 755 ../examples/fsharp/version.exe
 	export MONO_PATH="../../swig-cli" && \
 	  cd ../examples/fsharp && ./version.exe
 
