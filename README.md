@@ -126,11 +126,16 @@ from the w64 directory:
 
 ## Revision history
 
+1.7.0 - 2017-01-26
+
+* Change Makefile for GLPK 4.62
+* Use Swig 3.0.12
+
 1.6.0 - 2017-01-21
 
 * Change Makefiles for GLPK 4.61
 * Use thread local memory for callbacks and error handling
-* User Swit 3.0.11
+* Use Swig 3.0.11
 
 1.5.0 - 2016-03-27
 

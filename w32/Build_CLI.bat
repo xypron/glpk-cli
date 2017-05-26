@@ -9,8 +9,8 @@ rem Path to Visual Studio Express
 if exist "C:\Program Files\Microsoft Visual Studio 14.0" set HOME="C:\Program Files\Microsoft Visual Studio 14.0"
 if exist "C:\Program Files (x86)\Microsoft Visual Studio 14.0" set HOME="C:\Program Files (x86)\Microsoft Visual Studio 14.0"
 rem Path to SwigWin
-if exist "C:\Program Files\swig\swigwin-3.0.11" set SWIG="C:\Program Files\swig\swigwin-3.0.11"
-if exist "C:\Program Files (x86)\swig\swigwin-3.0.11" set SWIG="C:\Program Files (x86)\swig\swigwin-3.0.11"
+if exist "C:\Program Files\swig\swigwin-3.0.12" set SWIG="C:\Program Files\swig\swigwin-3.0.12"
+if exist "C:\Program Files (x86)\swig\swigwin-3.0.12" set SWIG="C:\Program Files (x86)\swig\swigwin-3.0.12"
 rem Path to Windows SDK
 if exist "C:\Program Files\Windows Kits\10" set SDK="C:\Program Files\Windows Kits\10"
 if exist "C:\Program Files (x86)\Windows Kits\10" set SDK="C:\Program Files (x86)\Windows Kits\10"

@@ -3,7 +3,7 @@ EXTRA_DIST = *.h *.i *.cs
 # current:revision:age
 # library implements all interface numbers
 # in the range from number current - age to current
-VERSION_INFO = 6:0:2
+VERSION_INFO = 6:1:2
 
 all:
 	mkdir -p src/c
