@@ -81,7 +81,7 @@ class Program
 			// Free memory
 			GLPK.glp_delete_prob (lp);
 
-		} catch (GlpkException ex) {
+		} catch (GlpkException) {
 			Console.WriteLine ("Error caught");
 			ret = 1;
 		}
