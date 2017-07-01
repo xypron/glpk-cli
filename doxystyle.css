@@ -1,0 +1,14 @@
+#titlearea {
+	background-color: #000;
+	color: #fff;
+}
+
+#nav {
+  padding: 3px 5px 3px 5px;
+  background-color: #cccccc;
+  padding: 0em;
+  font-size: 12px;
+  color: #000000;
+  margin: 0em;
+  border-bottom: 1px solid #666666;
+}
