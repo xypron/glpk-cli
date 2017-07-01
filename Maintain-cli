@@ -26,7 +26,20 @@ make
 make check
 make check-vb
 make check-fsharp
-git tag -s <release number>
+git push origin
+git tag -s v<release number>
+git push origin <tag>
 
 doxygen
 rsync -avP --delete -e ssh doc/cli/ xypron,glpk-cli@web.sourceforge.net:htdocs/
+
+sftp xypron,glpk-cli@frs.sourceforge.net
+cd /home/frs/project/glpk-cli/libglpk-cli
+mkdir libglpk-cli-<release number>
+cd libglpk-cli-<release number>
+put libglpk-cli-<release number>.tar.gz
+put README.md
+quit
+
+Update information in
+https://sourceforge.net/projects/glpk-cli/files/
