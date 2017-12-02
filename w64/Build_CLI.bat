@@ -25,7 +25,7 @@ del libglpk-cli.dll
 csc.exe -target:library -out:libglpk-cli.dll ..\swig-cli\src\csharp\*.cs
 set INCLUDE=
 set LIB=
-call %HOME%\VC\vcvarsall.bat x64
+call %HOME%\VC\vcvarsall.bat x86_amd64
 call %SDK%\bin\x86\rc.exe glpk_cli_dll.rc
 %HOME%\VC\bin\nmake.exe /f Makefile_CLI_VC_DLL
 %HOME%\VC\bin\nmake.exe /f Makefile_CLI_VC_DLL check
