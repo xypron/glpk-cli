@@ -31,7 +31,7 @@ git tag -s v<release number>
 git push origin <tag>
 
 doxygen
-rsync -avP --delete -e ssh doc/cli/ xypron,glpk-cli@web.sourceforge.net:htdocs/
+rsync --delete -avP -e ssh doc/cli/ xypron@web.sourceforge.net:/home/project-web/glpk-cli/htdocs/
 
 sftp xypron,glpk-cli@frs.sourceforge.net
 cd /home/frs/project/glpk-cli/libglpk-cli
